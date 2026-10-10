@@ -1,0 +1,95 @@
+select *
+from aircrafts;
+
+select *
+from airlines;
+
+select *
+from airports;
+
+select *
+from countries;
+
+select *
+from route_aircrafts;
+
+select *
+from routes;
+
+-- Vasukumar Patel
+-- 041153940
+
+-- Question-6
+-- displaying airlines' name and their countries.
+select airlines.name as airlines_name, countries.name as country
+from airlines 
+join countries on airlines.country_id = countries.id;
+
+-- Question-7
+-- displaying table which tells that how many airports each countries have.
+select count(airlines.name) as airlines_number, countries.name as countries
+from airlines 
+join countries on airlines.country_id = countries.id
+group by countries.name
+order by airlines_number desc;
+
+-- Question-8
+-- displaying table which tells which airrafts's route ends at France
+select count(distinct aircrafts.name) as aircraftcount, countries.name as countryname
+from routes
+join airports on routes.destination_airport_id = airports.id
+join countries on airports.country_id = countries.id
+join aircrafts on routes.airline_id = aircrafts.id
+where countries.name = 'France'
+group by countries.name;
+
+-- Question-9
+-- displaying table which tells which airrafts's route ends at France, Germany, Spain, Italy
+select count(distinct airlines.id) as airlinescount, countries.name as countryname
+from routes
+join airports on routes.destination_airport_id = airports.id
+join countries on airports.country_id = countries.id
+join airlines on routes.airline_id = airlines.id
+where countries.name in ('France', 'Germany', 'Spain', 'Italy')
+group by countries.name
+order by airlinescount desc;
+
+-- Question-10
+-- displaying table which tells airlines name, their country and their aircrafts for France, Germany, Spain and Italy. Also, these countries are the ending routes.
+select airlines.name as airlinename, aircrafts.name as aircraftname, countries.name as countryname
+from routes
+join airports on routes.destination_airport_id = airports.id
+join countries on airports.country_id = countries.id
+join airlines on routes.airline_id = airlines.id
+join route_aircrafts on route_aircrafts.route_id = routes.id
+join aircrafts on route_aircrafts.aircraft_id = aircrafts.id
+where countries.name in ('France', 'Germany', 'Spain', 'Italy')
+order by countries.name, airlines.name, aircrafts.name;
+
+
+-- Question-11
+-- using sub-query structure format from the question 8.
+select count(distinct aircrafts.name) as aircraftcount, countries.name as countryname
+from routes
+join airports on routes.destination_airport_id = airports.id
+join countries on airports.country_id = countries.id
+join aircrafts on routes.airline_id = aircrafts.id
+where countries.name in 
+    (select name 
+     from countries 
+     where name = 'France')
+group by countries.name;
+
+-- Question-12
+-- using sub-query structure format from the question 7.
+select airlinesnumber, countryname
+from
+    (select count(airlines.name) as airlinesnumber, countries.name as countryname
+     from airlines
+     join countries on airlines.country_id = countries.id
+     group by countries.name) as derivedtable
+order by airlinesnumber desc;
+
+
+
+

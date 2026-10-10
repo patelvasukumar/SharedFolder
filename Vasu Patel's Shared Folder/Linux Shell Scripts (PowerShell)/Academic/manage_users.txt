@@ -1,0 +1,427 @@
+#!/bin/sh -u
+PATH=/bin:/usr/bin ; export PATH
+umask 022
+
+# Assignment number: LAB - 09 
+# Name: Vasukumar Patel
+# Student Number: 041153940
+# Course: Operating Systems Fund (GNU/Linux)
+# Section Number: 322
+# Script Name: manage_users
+# Submission date: 29th March 2025
+#
+# This script has different functions which related to the adding account and modifying the account of the user. 
+# Also, we can delete and change the shell of the user by using the functions. The script is using exit and sleep for the better user experience.
+# Menu is workable due to switch and while loop functions. In addition, the script also shows error when it ocurred.
+#
+# The script writer realized it very late that he could make a function to check valid user name. Then, use the same function again and again. 
+# Now, it is too late.
+#
+
+error_report() {
+	
+	echo ""
+	echo " "$0" : "There is something wrong try again ! "  "
+	echo ""
+	sleep 3
+	clear
+
+}
+
+option_menu () {
+
+	clear
+
+        echo "Option: A = Create the user account"
+        echo "Option: I = Change a user's initial/primary group"
+        echo "Option: S = Change a user's supplementary group"
+        echo "Option: L = Change a user's login shell for a user account"
+        echo "Option: E = Change the expiration date for a user account"
+        echo "Option: D = Delete a user account"
+        echo "Option: Q = Quit the script"
+        echo ""
+        echo "Note: all cases are non-case sensitive"
+        echo "" 
+	echo "If you want to terminate the program at any step, use CTRL + C."
+	echo ""
+	echo "There is a 3 second timer. So, you have to wait after each option."
+	echo ""
+
+
+}
+
+user_account () {
+
+	local checker_user=0
+
+	while test "$checker_user" -eq 0 ; do
+
+	read -p "Enter the user name: " username
+
+	if cat /etc/passwd | cut -d ":" -f 1 | fgrep -w "$username"  > /dev/null ; then
+
+		echo ""
+	    	echo "the user is already on the system. Please select another username."
+        	echo ""
+
+		sleep 3
+
+	else 
+		checker_user=1
+	fi
+	
+	done
+
+	read -p "Enter the home directory: (absolute path) " home_directory
+	
+	shell_loop=0
+
+	while test "$shell_loop" -eq 0 ; do	
+			
+		read -p "Enter the default shell path: (absolute path) " shell
+	
+	if  cat /etc/shells | fgrep -x "$shell" > /dev/null ; then 
+
+		shell_loop=1
+
+	else
+		echo ""
+		echo " The shell is not registed in /etc/shells directory. Please, Try again ! "
+		echo ""
+
+	fi
+	done
+
+	sudo useradd -m -d "$home_directory" -s "$shell" "$username"
+	
+	if test "$?" -ne 0 ; then
+		error_report
+		return
+	fi
+
+
+	echo ""
+	echo "$username added successfully."
+	echo ""
+	
+	sleep 3
+
+	clear
+
+}
+
+primary_group () {
+
+		local checker_user=0
+
+        while test "$checker_user" -eq 0 ; do
+
+        	read -p "Enter the user name: " primary_user_name
+
+        if cat /etc/passwd | cut -d ":" -f 1 | fgrep -w "$primary_user_name"  > /dev/null ; then
+	
+			local checker_group=0
+
+		while test "$checker_group" -eq 0 ; do 
+
+			read -p "Enter the group name: " primary_group_name
+
+
+		if cat /etc/group | cut -d ":" -f 1 | fgrep -w "$primary_group_name" > /dev/null ; then
+
+
+
+        		sudo usermod -g "$primary_group_name" "$primary_user_name" 
+
+			if test "$?" -ne 0 ; then
+				error_report
+				return
+			fi
+
+
+       	        	echo ""
+        		echo "The primary group changed successfully for "$primary_user_name". "
+        		echo ""
+
+        		sleep 3
+
+        		clear
+		
+			checker_user=1
+			checker_group=1
+
+		else
+		
+			echo ""
+	 		echo "The group name is not valid. Please, enter a valid group name."
+			echo ""
+			sleep 3	
+		fi
+		
+		done
+
+ 	else
+	
+		echo ""	
+		echo "the username is not on the system. Please, enter a valid username."
+		echo ""
+		sleep 3
+	fi
+
+        done
+
+} 
+
+supplementary_group () {
+
+	 	  local checker_user=0
+
+           while test "$checker_user" -eq 0; do
+        
+	  	 read -p "Enter the user name: " user_name_sp
+
+
+	   if cat /etc/passwd | cut -d ":" -f 1 | fgrep -w "$user_name_sp" > /dev/null ; then
+            		
+				local checker_group=0
+
+           		 while test "$checker_group" -eq 0; do
+                		
+				 read -p "Enter the group name: " group_name_sp
+
+            if cat /etc/group | cut -d ":" -f 1 | fgrep -w "$group_name_sp" > /dev/null ; then
+        
+                    sudo usermod -a -G "$group_name_sp" "$user_name_sp"
+        
+		    if test "$?" -ne 0 ; then
+			    error_report
+			    return
+		    fi
+
+
+		    echo ""
+                    echo "The supplementary group changed successfully for "$user_name_sp". "
+                    echo ""
+        
+		    sleep 3
+                    clear
+        
+		    checker_group=1
+        
+		    checker_user=1
+        
+    	    else
+    
+    		    echo ""
+                    echo "The group name is not valid. Please, enter a valid group name."
+                    echo ""
+    		    sleep 3
+	    fi
+            done
+
+    else
+            echo ""
+            echo "The username is not on the system. Please, enter a valid username."
+            echo ""
+	    sleep 3
+
+    fi
+    done
+
+}
+
+
+login_shell () {
+
+
+    local checker_user=0
+
+    while test "$checker_user" -eq 0; do
+
+          read -p "Enter the user name: " shell_username
+
+    	  if cat /etc/passwd | cut -d ":" -f 1 | fgrep -w "$shell_username" > /dev/null ; then
+
+         
+		  shell_loop=0
+
+       
+		  while test "$shell_loop" -eq 0 ; do
+
+                	read -p "Enter the default shell path: (absolute path) " shell_path
+
+       		  if  cat /etc/shells | fgrep -x "$shell_path" > /dev/null ; then
+
+                shell_loop=1
+
+          else
+         
+	   	  echo ""
+                  echo " The shell is not registed in /etc/shells directory. Please, Try again ! "
+                  echo ""
+
+          fi
+          done
+
+                    sudo usermod --shell "$shell_path" "$shell_username"
+
+		    if test "$?" -ne 0 ; then
+			    error_report
+			    return
+		    fi
+
+                    echo ""
+                    echo "The login shell has been changed for $shell_username."
+                    echo ""
+                    sleep 3
+                    clear
+	
+                    checker_user=1
+	 
+   else
+                echo ""
+                echo "The username is not on the system. Please enter a valid username."
+                echo ""
+
+    fi
+ done
+
+}
+
+expiry_date () {
+
+	   local checker_user=0
+
+    while test "$checker_user" -eq 0; do
+       
+	   read -p "Enter the user name: " date_username
+       
+    if cat /etc/passwd | cut -d ":" -f 1 | fgrep -w "$date_username" > /dev/null ; then
+        
+	    read -p "Enter the expiry date (format: YYYY-MM-DD) (only numbers are allowed) : " ex_date
+   
+   	    sudo usermod -e "$ex_date" "$date_username"  2> /dev/null
+   
+	    if test "$?" -ne 0 ; then
+		    error_report
+		    return
+	    fi
+
+   	    echo ""
+            echo "If you wrote in the correct format, the expiry date is changed for "$date_username". "
+            echo ""
+            sleep 3
+            clear
+            checker_user=1
+   
+    else
+
+	    echo ""
+            echo "The username is not on the system. Please, enter a valid username."
+            echo ""
+
+    fi
+    done
+
+}
+
+delete () {
+
+	local checker_user=0
+
+    while test "$checker_user" -eq 0 ; do
+        
+	read -p "Enter the user name: " username_delete
+        
+	if cat /etc/passwd | cut -d ":" -f 1 | fgrep -w "$username_delete" > /dev/null ; then
+        
+            sudo userdel -r "$username_delete"
+            
+	    if test "$?" -ne 0 ; then
+		    error_report
+		    return
+	    fi
+	    
+	    
+	    
+	    
+	    echo ""
+            echo " "$username_delete" has been removed from the system." 
+            echo ""
+            sleep 3
+            clear
+            checker_user=1
+        
+    else
+    
+    	    echo ""
+            echo "The username is not on the system. Please, enter a valid username."
+            echo ""
+    
+    fi
+    done
+
+}
+
+
+
+choice_menu () {
+
+local choice=""
+
+while test "$choice" != "Q" -a "$choice" != "q" ; do
+
+echo ""
+option_menu 
+echo ""
+
+read -p "Enter the option from the menu: " choice 
+echo ""
+
+case "$choice" in 
+	
+	[Aa])
+		user_account
+		;;
+
+	[Ii])
+		primary_group
+		;;
+
+	[Ss])	supplementary_group
+		;;
+	
+	[Ll])	login_shell
+		;;
+
+	[Ee])	expiry_date
+		;;
+
+	[Dd])	delete
+		;;
+
+	[Qq])
+		clear
+		echo "The program is going to shut-down. Please, wait few seconds."		
+		sleep 3
+
+		exit 0
+		;;
+
+	*) 
+		
+		echo ""
+		echo "You enter the wrong option"
+		echo ""
+		
+		sleep 3
+
+		clear
+
+		;;
+
+esac
+done
+}
+
+choice_menu

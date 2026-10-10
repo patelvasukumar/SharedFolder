@@ -1,0 +1,14 @@
+Combo Platter       ,0,6,15,20
+Dregs Special       ,1,30,10,2
+Scurrilous Sam      ,2,90,10,1
+Soda (varieties)    ,1,2,2,0
+Bar drink           ,1,25,20,2
+Water               ,1,0,7,0
+Quebecois Cheap Beer,1,5,3,1
+Burger              ,0,4,7,13
+Stronger beer       ,1,8,8,1
+Deliberate Lawndarts,2,60,8,0
+Poutine             ,0,5,12,10
+Large Burger        ,0,2,10,15
+Scalawags           ,2,50,5,0
+Gadabouts           ,2,35,10,1

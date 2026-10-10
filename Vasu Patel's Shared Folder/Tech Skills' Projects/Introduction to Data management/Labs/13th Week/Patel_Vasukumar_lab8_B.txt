@@ -1,0 +1,33 @@
+-- Vasukumar Patel
+-- 041153940
+
+-- Question 6
+select country_id, count(*) as The_Total_Number_Of_Airports
+from airports
+group by country_id
+order by count(*) desc;
+
+-- Question 7
+select city, count(*) as Number_of_Airports
+from airports
+where country_id = 160
+group by city
+order by count(*) desc;
+
+-- Question 8
+select city, count(*) as Number_of_Airports
+from airports
+where country_id = 160
+group by city
+having count(*) > 5
+order by count(*) desc;
+
+-- Question 9
+select count(*), code
+from aircrafts 
+where name = 'Boeing' and code like '74%';
+
+-- Question 10
+select count(distinct wake_size) as WakeSizeNumbers
+from aircrafts
+where  name in ('Boeing','Airbus');

@@ -1,0 +1,29 @@
+-- Vasukumar Patel
+-- 041153940
+
+-- Question 1
+select count(*)
+from airports;
+
+-- Question 2
+select avg(elevation)
+from airports;
+
+-- Question 3
+select min(elevation), 
+max(elevation)
+from airports;
+
+-- Question 4
+select avg(elevation),
+avg(elevation)
+from airports
+group by country_id;
+
+-- Question 5
+SELECT country_id,
+AVG(elevation)
+FROM airports
+GROUP BY country_id
+HAVING AVG(elevation)<=300
+ORDER BY AVG(elevation) DESC;

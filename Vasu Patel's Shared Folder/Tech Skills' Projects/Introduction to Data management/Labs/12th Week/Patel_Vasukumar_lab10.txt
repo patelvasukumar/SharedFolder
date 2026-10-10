@@ -1,0 +1,36 @@
+-- Vasukumar Patel
+-- 041153940
+
+-- Question-1
+create view first_table as
+select distinct airports.name as Airports_Name, airlines.name as Airlines_Name, aircrafts.description as description
+from airports 
+join routes on airports.id = routes.source_airport_id
+join airlines on airlines.id = routes.airline_id
+join aircrafts on aircrafts.id = airlines.id
+where airports.name = 'Lester B Pearson Intl';
+
+select*
+from first_table;
+
+-- Question-2
+create materialized view second_table_mv as
+select id, name, city, country_id
+from airports
+where country_id = 208
+order by city;
+
+select*
+from second_table_mv;
+
+-- Question-3
+insert into airports(id,name,city,x,y,country_id) values ('9910','Kanata Airport','Kanata',75,45,208);
+
+-- Question-4
+refresh materialized view second_table_mv;
+
+select*
+from second_table_mv;
+
+-- Question-5
+create index Airports_Index on airports(city);

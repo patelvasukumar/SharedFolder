@@ -1,0 +1,20 @@
+-- selecting all coloums from airports databse
+select *  from airports;
+
+-- selecting name with distinct from airport database. Also, we changed the name from name to airport_name
+select distinct (name) as airport_name from airports;
+
+-- selecting all coloums from countries table where we put a condition of id = 160
+select * from countries where id = 160;
+
+-- selecting name, city and country_id coloums from the airports database where the condition is that all city should be hamilton
+select name, city, country_id from airports where city = 'Hamilton';
+
+-- same like above query but making more condition which is that country_id should be 160
+select name, city, country_id from airports where city = 'Hamilton' and country_id = 160;
+
+-- selecting all coloums from airports table and making condition where we are just selecting two cities in the coloum.
+select * from airports where city in ('Chicago', 'Boston');
+
+-- selecting all coloums from airports and the condition is that elevation coloum should be in desc and it should be between 400 and 500.
+select * from airports where elevation >= 400 and elevation <= 500 order by elevation desc;

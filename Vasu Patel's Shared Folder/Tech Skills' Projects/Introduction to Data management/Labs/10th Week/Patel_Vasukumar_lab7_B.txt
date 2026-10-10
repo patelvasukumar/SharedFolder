@@ -1,0 +1,20 @@
+
+-- selecting all from airlines database where condition is country_id is null
+select * from airlines where country_id is null;
+
+-- selecting all from airlines where condition is that airlines name must start with can and we do not care what is behind it
+select * from airlines where name like 'Can%' order by country_id;
+
+-- selecting all from airlines table where condtion is that name must start with international and we do not care what is before and after the name
+select * from airlines where name like '%International%';
+
+-- selecting all from airlines table where condtion is that name must start with aviation and we do not care what is before the name
+select * from airlines where name like '%Aviation';
+
+-- selecting all from countries and airports tables where name is Canda and country_id =208 and elevation = 0
+select * from countries where name = 'Canda';
+select * from airports where country_id = 208 and elevation = 0;
+
+-- selecting all from countries and airports tables where name is France and country_id =130 and elevation = 'Y'
+select * from countries where name = 'France';
+select * from airlines where country_id = 130 and active = 'Y';

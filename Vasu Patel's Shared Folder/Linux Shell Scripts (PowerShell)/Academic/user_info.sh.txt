@@ -1,0 +1,18 @@
+#!/bin/sh -u
+PATH=/bin:/usr/bin ; export PATH
+umask 022
+
+# The script takes only one and the first argument from the command prompt, and then it will find the argument pattern in the /etc/passwd file by using different# commands. It displays the details of the argument. Then, it displays the size of the home directory by using another command. The last two lines displays the  # user name and home directory path by using environment variable. These last two are those which we are using currently with the shell. In addition, the errors # which get when we run the script. Those errors are redirected to the /dev/null. 
+
+echo "the username is:" $(cat /etc/passwd | fgrep $1 | cut -d ':' -f 1) 2> /dev/null 
+echo "the UID (User Id) is:" $(cat /etc/passwd | fgrep $1 | cut -d ':' -f 3) 2> /dev/null
+echo "the GID (Group Id) is:" $(cat /etc/passwd | fgrep $1 | cut -d ':' -f 4) 2> /dev/null
+echo "the comment field is:" $(cat /etc/passwd | fgrep $1 | cut -d ':' -f 5) 2> /dev/null
+echo "the home directory is:"$(cat /etc/passwd | fgrep $1 | cut -d ':' -f 6) 2> /dev/null
+echo "the path to shell is:" $(cat /etc/passwd | fgrep $1 | cut -d ':' -f 7) 2> /dev/null
+echo "the home directory size:" $(( $(stat -f --format=%s ~)/1024)) "KB" 2> /dev/null 
+echo ""
+echo "current user(by using environment variable):" $USER 2> /dev/null
+echo "current home directory (by using environment variable):" $HOME 2> /dev/null
+
+# The script is made by Vasu Patel also known as Vasukumar Patel.
