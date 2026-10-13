@@ -1,0 +1,56 @@
+<html>
+
+<head>
+ 
+    <title> Rectangular Area </title>
+    <link href="StyleSheet.css" rel="StyleSheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    
+</head>
+
+<body>
+
+     <div id="header">
+        
+        <h1><b>Computer Engineering Computing Science - Web Programming</b></h1>   
+        
+    </div>
+
+     <div id="menu">
+       
+        <h2> 
+             <a href="index.html"> Index </a> 
+             <a href="AreaCalculator.html"> AreaCalculator </a>
+             <a href="Fibonacci.html"> Fibonacci </a>
+             <a href="Factorial.html"> Factorial</a>
+        <h2>
+    
+    </div>
+
+    <div id="content"> 
+
+            <br>
+            <h3> This program calculates the area of the rectangle </h3> <br>
+            <h6> Please enter the width and length of the rectangle </h6> <br>
+
+            <div ng-app="">
+
+                Length : <input type="text" ng-model="length"> <br>
+                width : <input type="text" ng-model="width"> <br> <br>
+
+                <p> <b> Area of the rectangle : </b> {{length*width}} </p>
+
+            </div>
+
+
+    </div>
+
+    <div id="footer">
+        <p> Student Number : 041153940 </p>
+        <p> Student Name : Vasukumar Patel </p>
+        <p> Student Email-ID : pate1541@algonquinlive.com </p>
+    </div>
+
+</body>
+
+</html>

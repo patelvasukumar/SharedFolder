@@ -1,0 +1,34 @@
+Fiction
+101
+Western Civilization
+Jackson Spielvogel
+30
+Non-Fiction
+202
+Empires of the Word
+Nicholas Ostler
+60
+History
+Reference
+303
+Origins of language
+Daniel Everett
+100
+3rd
+Fiction
+707
+The River Between
+Ngugi Wa Thiongo
+25
+Non-Fiction
+505
+Democracy and Development
+Ashutosh Varshney
+70
+Politics and Culture
+Reference
+304
+Things Fall Apart
+Chinua Achebe
+88
+3th

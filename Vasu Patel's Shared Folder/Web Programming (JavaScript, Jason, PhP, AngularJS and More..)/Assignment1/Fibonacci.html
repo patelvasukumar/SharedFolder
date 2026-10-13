@@ -1,0 +1,84 @@
+<html ng-app="fibonacciApp">
+
+<head>
+ 
+    <title> Fibonacci </title>
+    <link href="StyleSheet.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <script>
+        angular.module('fibonacciApp', []).controller('fibonacciController', function($scope) {
+
+            $scope.fibonacci = 0;
+            $scope.series = [];
+
+            function generateFibonacci(n) {
+               
+                var series = [];
+                if (n >= 0) { series.push(0) };
+                if (n >= 1) { series.push(1) };
+               
+                for (let i = 2; i <= n; i++) {
+                    series.push(series[i - 1] + series[i - 2]);
+                }
+                
+                return series;
+           
+            }
+
+            $scope.calculate = function() {
+             
+                const number = parseInt($scope.fibonacci, 10) || 0;
+                $scope.series = generateFibonacci(number);
+            
+            };
+
+            $scope.calculate(); 
+        });
+    </script>
+    
+    
+</head>
+
+<body ng-controller="fibonacciController">
+
+     <div id="header">
+        
+        <h1><b>Computer Engineering Computing Science - Web Programming</b></h1>   
+        
+    </div>
+
+     <div id="menu">
+       
+        <h2> 
+             <a href="index.html"> Index </a> 
+             <a href="AreaCalculator.html"> AreaCalculator </a>
+             <a href="Fibonacci.html"> Fibonacci </a>
+             <a href="Factorial.html"> Factorial</a>
+        </h2>
+    
+    </div>
+
+    <div id="content"> 
+
+        <br> <h5> This program calculates the numbers in the Fibonacci series </h5>
+        <h6> Please enter the sequence number of the fibonacci series </h6>
+        
+        Sequence Number: <input type="number" 
+                                ng-model="fibonacci" 
+                                ng-change="calculate()" 
+                                min="0" />  <br> <br>
+
+    <h6> Fibonacci numbers upto Sequence {{fibonacci}}, F <sub> {{fibonacci}} </sub> : [{{series.join(',')}}]  </h6>
+
+    </div>
+
+    <div id="footer">
+        <p> Student Number : 041153940 </p>
+        <p> Student Name : Vasukumar Patel </p>
+        <p> Student Email-ID : pate1541@algonquinlive.com </p>
+    </div>
+
+</body>
+
+</html>

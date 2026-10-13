@@ -1,0 +1,226 @@
+
+<html> 
+
+<head>
+  
+    <link href="StyleSheet.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="header">
+        
+        <h1><b>Computer Engineering Computing Science - Web Programming</b></h1>   
+        
+    </div>
+
+    <div id="menu">
+       
+        <h2> 
+             <a href="index.html"> Index </a> 
+             <a href="Multimedia.html"> Multimedia </a> 
+        <h2>
+    
+    </div>
+
+    <div id="content">
+
+        <h4>CSS Selectors Examples</h4>
+      
+        <table>
+           
+            <tr>
+                <th>CSS Style Rule</th>
+                <th>Syntax</th>
+                <th>Example</th>
+            </tr>
+        
+            <tr>
+            
+                <td>Class Selector</td>
+            
+                <td>
+                    <p>
+                        .first {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;font-style: italic;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        color: brown; <br>
+                        }
+                    </p>
+                </td>
+            
+                <td>
+            
+                    <div class="first">
+                    
+                        <p> <b>Reviews</b>  </p>
+                        <p>By Vasukumar Patel on May 25, 2025</p>
+                    
+                    </div>
+                    
+                    <p>I love Central Park.</p>
+            
+                </td>
+            
+            </tr>
+            
+            <tr>
+                
+                <td>Id Selector</td>
+                
+                <td>
+                    <p>
+                        #latestComment {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        font-style: italic; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        color: blue; <br>}
+                    </p>
+                </td>
+          
+                <td>
+                    <p> <b>  Reviews </b> </p>
+                    <div id="latestComment">
+                    <p>By Vasukumar Patel on May 25, 2025</p>
+                    <p>I love Central Park.</p>
+                    </div>
+                </td>
+            
+            </tr>
+        
+            <tr>
+                <td>Attribute Selector</td>
+                <td>
+                    <p>
+                        [title]&nbsp;&nbsp;{ <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            cursor: help; <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            padding-bottom: 3px;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            border-bottom: 2px dotted blue;<br> 
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            text-decoration: none; <br>
+                        }
+                    </p>
+                </td>
+                
+                <td>
+                    <div id="images">
+                        
+                        <img src="Canada.png" title="Canada Flag" width="50" /><br>
+                        <br>
+                        <a href="https://www.canada.ca/en.html" title="Country">
+                            Canada </a> 
+                        
+                        <p>Canada is a North American country consisting of …</p>
+                        
+                        <img src="beach_1.jpg" title="BeachImage1" width="100" />
+                        <img src="beach_2.jpg" title="BeachImage2" width="100" />
+                        <img src="beach_3.jpg" title="BeachImage3" width="100" />
+                    
+                    </div>
+                </td>
+            </tr>
+        
+            <tr>
+                <td>Pseudo Selector</td>
+            
+                <td>
+                    <p>
+                        a:link { <br>
+                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text-decoration: underline; <br> 
+                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                         color: blue; <br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        } <br><br>
+                        
+                        a:visited { <br>
+                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                             text-decoration: underline; <br>
+                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                             color: purple; <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        }<br><br>
+                        
+                        a:hover { <br>
+                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                             text-decoration: underline; <br>
+                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                             font-weight: bold; <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        }
+                    </p>
+                
+                </td>
+                
+                <td>
+                    <p> To know about links visit the
+                    
+                        <a href="https://www.w3.org/">W3C</a> website.
+                    
+                    </p>
+                
+                    <ol>
+                        <li><a href="https://www.google.ca">Google</a></li>
+                        <li><a href="https://www.yahoo.ca">Yahoo</a></li>
+                        <li><a href="https://www.amazon.ca">Amazon</a></li>
+                    </ol>
+                </td>
+            </tr>
+       
+            <tr>
+                 <td>Contextual Selector</td>
+                
+                 <td>
+                    <p>
+                        ul a:link { <br>
+                        background-color: yellow; <br>} 
+                        <br>#main
+                        div p:first-child { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        color: green; 
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        }
+                    </p>
+                </td>
+                
+                <td>
+                    <ul>
+                        <li><a href="https://www.google.com/">Google</a></li>
+                        <li><a href="https://ca.yahoo.com/">Yahoo</a></li>
+                        <li><a href="https://www.amazon.ca/">Amazon</a></li>
+                    </ul>
+            
+                    <div id="main">
+                        <div>
+                            <p>I love Central Park.</p>
+                            <p>I love National Park.</p>
+                        </div>
+                   </div>
+                </td>
+            </tr>
+        
+        </table>
+
+    </div>
+
+    <div id="footer">
+        <p> Student Number : 041153940 </p>
+        <p> Student Name : Vasukumar Patel </p>
+        <p> Student Email-ID : pate1541@algonquinlive.com </p>
+    </div>
+
+</body>
+
+</html>

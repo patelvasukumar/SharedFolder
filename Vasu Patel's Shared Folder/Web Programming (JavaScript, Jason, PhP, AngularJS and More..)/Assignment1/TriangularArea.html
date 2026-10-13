@@ -1,0 +1,55 @@
+<html>
+
+<head>
+ 
+    <title> Triangular Area </title>
+    <link href="StyleSheet.css" rel="StyleSheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    
+</head>
+
+<body>
+
+     <div id="header">
+        
+        <h1><b>Computer Engineering Computing Science - Web Programming</b></h1>   
+        
+    </div>
+
+     <div id="menu">
+       
+        <h2> 
+             <a href="index.html"> Index </a> 
+             <a href="AreaCalculator.html"> AreaCalculator </a>
+             <a href="Fibonacci.html"> Fibonacci </a>
+             <a href="Factorial.html"> Factorial</a>
+        <h2>
+    
+    </div>
+
+    <div id="content"> 
+        <br>
+        <h3> This program calculates the area of a Triangle. </h3>
+        <h6> Please enter the height and base of the triangle </h6>
+
+        <div ng-app="">
+        
+        Height : <input type="text" ng-model="height"> <br>
+        Base : <input type="text" ng-model="base"> <br> <br>
+        
+        <p> <b> Area of the triangle: </b> {{ ((height*base)/2) }} </p>
+
+
+        </div>
+
+    </div>
+
+    <div id="footer">
+        <p> Student Number : 041153940 </p>
+        <p> Student Name : Vasukumar Patel </p>
+        <p> Student Email-ID : pate1541@algonquinlive.com </p>
+    </div>
+
+</body>
+
+</html>

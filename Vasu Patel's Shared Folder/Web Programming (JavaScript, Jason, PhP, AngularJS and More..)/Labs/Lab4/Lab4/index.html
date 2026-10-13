@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    
+      <title>Template File Using Bootstrap</title>
+        
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> 
+  
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    
+  </head>
+
+  <script type="text/javascript"> 
+
+    function converter(){
+      let type = prompt("Please enter a length unit(1:To convert into inch, 2:To convert into centimeter)");
+
+      let value = prompt("Please enter a length value to be converted to inch/centimeter");
+
+      while (isNaN(parseFloat(value))) {
+      value = prompt("Please, enter a number ! " ); 
+      }
+
+    value = parseFloat(value);
+    let result;
+
+    switch (type) {
+  
+      case "1":
+      result = value / 2.54;
+      alert(value + " converted to " + result.toFixed(2) + " inches.");
+      break;
+  
+      default:
+      result = value * 2.54;
+      alert(value + " converted to " + result.toFixed(2) + " cm.");
+      break;
+       
+    }
+
+    }
+  </script>
+
+<body>
+
+  <div class="container-fluid">
+     
+      <div class="row">
+        
+        <div class="col-md-12" style="padding: 0">
+          
+          <div class="jumbotron text-center" style="padding-bottom: 0">
+            
+              <h1>
+                <b>Computer Engineering Computing Science - Web Programming</b>
+              </h1>
+
+                  <div class="col-md-3 offset-md-9">
+                  <nav class="navbar bg-light justify-content">
+                  <ul class="nav">
+                  <li> <a class="nav-link" href="Lab2/index.html">Lab 2 </a> </li>
+                  <li class="nav-item"> <a class="nav-link" href="Lab3/index.html">Lab 3</a> </li>
+                  </ul>
+                  </nav>
+          
+          </div>
+        
+        </div>
+      
+      </div>
+
+      <div class="col-md-12" >
+         
+          <h3>Length Converter Using Bootstrap Template</h3>
+          <h3>------------------------------------------------------</h3>
+          <h4>This program converts from inch to centimeter and vice versa</h4>
+          <h4>-------------------------------------------------------------</h4>
+          <h5>Please click Convert button to perform length conversion</h5>
+          <h5>-------------------------------------------------------------</h5>
+
+          <input onclick="converter()" name="converter" id="converter" value="Convert!" type="button"/>
+           
+      </div>
+      
+      </div>
+    
+  </div>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+
+  <p>Student Name : Vasukumar Patel</p>
+  <p>Student Number : 041153940</p>	
+  <p>Student Email-ID : pate1541@algonquinlive.com</p>
+
+</div>
+
+</body>
+
+</html>

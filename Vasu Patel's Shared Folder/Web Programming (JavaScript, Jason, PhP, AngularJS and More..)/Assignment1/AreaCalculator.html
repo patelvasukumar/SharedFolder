@@ -1,0 +1,43 @@
+<html ng-app="myApp" ng-controller="RedirectController">
+
+<head>
+ 
+    <title> Area Calculator </title>
+    <link href="StyleSheet.css" rel="StyleSheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+     <script>
+
+        var app = angular.module('myApp',[]);
+
+        app.controller('RedirectController',function($scope,$window) {
+
+            var choice = $window.prompt("Please enter the shape you want to calculate the area \n (1:Triangle, 2:Rectangle, 3:Circle)");
+
+            switch(choice) {    
+
+                case "1":
+                $window.location.href="TriangularArea.html";
+                break;
+
+                case "2":
+                $window.location.href="RectangularArea.html";
+                break;
+
+                case "3":
+                $window.location.href="CircularArea.html";
+                break;
+
+                default:
+                $window.alert("You entered the wrong option ! \n Please, try again !");
+                $window.location.href="AreaCalculator.html";
+                break;
+           
+            }
+        });
+
+    </script>
+    
+</head>
+
+</html>

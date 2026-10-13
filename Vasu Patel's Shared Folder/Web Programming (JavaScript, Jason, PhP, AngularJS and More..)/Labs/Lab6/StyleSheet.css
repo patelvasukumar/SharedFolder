@@ -1,0 +1,58 @@
+body {
+margin: 3%;
+font-family: sans-serif;
+}
+
+#header {
+border-color: black;
+background-color: FE5D26;
+font-size: 15pt;
+color: black;
+width: 94%;
+height: 25%;
+text-align: center;
+position: absolute;
+}
+
+#menu {
+font-family: initial;
+border-style: solid;
+border-color: black;
+word-spacing: 2em;
+font-size: 10pt;
+line-height: 23px;
+text-align: center;
+background-color: C1DBB3;
+width: 500px;
+position: relative;
+float: right;
+bottom: 480px;
+top: 114px;
+}
+
+#content {
+border-color: black;
+position: relative;
+font-size: 25pt;
+height: auto;
+width: 100%;
+float: center;
+min-height: 100%;
+text-align: left;
+background-color: FAEDCA;
+left: 0px;
+top: 175px;
+}
+
+#footer {
+font-family: initial;
+border-color: 10% black;
+position: relative;
+bottom: -175px;
+background-color: C1DBB3;
+color: black;
+clear: both;
+text-align: center;
+padding: 10px;
+width: auto;
+}
