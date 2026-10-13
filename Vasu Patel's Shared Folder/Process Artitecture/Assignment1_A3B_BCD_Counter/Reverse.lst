@@ -1,0 +1,67 @@
+
+as12, an absolute assembler for Motorola MCU's, version 1.2h
+
+                        ; Reverse.asm
+                        
+                        ; Modified by:          Sabit Naim, Vasukumar Patel
+                        ; Student Number(s):    041155239, 041153940
+                        ; Course:               CST8216
+                        ; Date:                 26th July 2025
+                        ;
+                        ; Purpose       To copy and reverse and array, while performing the following
+                        ;               additional operations to decrypt the Secret Message. After
+                        ;               reading in a value, we decrypt the value by
+                        ;                a. dividing the value by 3
+                        ;               b. then adding 32 to the value
+                        ;               c. storing the value
+                        
+                        ; Decryption Constants
+0003                    DIVISOR         equ     3       ; Value in supplied array will be divided by
+                                                        ; this value
+0020                    ADDED_VALUE     equ     32      ; Divided value will have 32 added to it
+0000                    loop_num        ds      1       ; Number of loops
+                        
+1000                                    org     $1000   ; Origin memory address starting from $1000.
+1000                    Source_Array
+                        #include A3B_Array.txt          ; Importing the secret message array file.
+1000 8a 9f 72 00 99 7b  	db	$8A,$9F,$72,$0,$99,$7B,$0,$AB,$63,$96,$96,$63,$0,$0
+     00 ab 63 96 96 63
+     00 00
+100e 00 00 8a 63 00 75  	db	$0,$0,$8A,$63,$0,$75,$8A,$7B,$99,$96,$6F,$A2,$6F,$96
+     8a 7b 99 96 6f a2
+     6f 96
+                        
+                        
+                        	
+                        
+                        #endinclude
+
+101c                    End_Source_Array
+1020                                    org     $1020   ; Secret Message will appear
+                                                        ; starting here
+1020                    Destination_Array
+1020                                    ds      End_Source_Array-Source_Array   ; auto calculate Array Size
+103c                    End_Destination_Array
+                        
+2000                                    org     $2000
+2000 cf 20 00                           lds     #$2000                          ; Initialize Stack
+2003 ce 10 00                           ldx     #Source_Array                   ; Loading the starting address of the array in X
+2006 cd 10 3b                           ldy     #End_Destination_Array-1        ; Loading the array ending address of the array in Y
+2009 79 00 00                           clr     loop_num                        ; Initializing number of loops
+200c                    Loop:
+200c a6 30                              ldaa    1,x+                             ; Loading from array into A
+200e c7                                 clrb                                    ; Clearing B
+200f ce 00 03                           ldx     #DIVISOR                        ; Loading 3 in X
+2012 18 10                              idiv                                    ; Perform division, quotient in X, result in D
+2014 b7 c5                              xgdx                                    ; Exchanging the values in D and X
+2016 8b 20                              adda    #ADDED_VALUE                    ; Add 32 to the array
+2018 6a 7f                              staa    1,y-                             ; Storing the new values in A
+201a 8e 10 1c                           cpx   #End_Source_Array	  ; Comparing with total array size
+201d 25 ed                              blo     Loop                            ; Loop if number of loops lower than array size
+                        
+201f 3f                                 swi
+                                        end
+
+Executed: Thu Jul 31 13:24:36 2025
+Total cycles: 49, Total bytes: 60
+Total errors: 0, Total warnings: 0

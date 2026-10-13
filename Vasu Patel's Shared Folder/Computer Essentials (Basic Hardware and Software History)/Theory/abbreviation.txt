@@ -1,0 +1,76 @@
+ACM - Association for Computing Machinery
+IEEE - Institute of Electrical and Electronics Engineers
+ISO - International Organization for Standardization - a membership of 169 national standards bodies
+network address translation (NAT)
+The Microsoft Security Response Center (MSRC) blog
+Internet Storm Center (ISC) pools
+HyperText Markup Language (HTML)
+DDoS- Distributed Denial of Service
+Intrusion Detection Systems (IDS)
+Intrusion Prevention systems (IPS)
+SAN - Storage Area Networks
+electronic waste, also known as e-waste
+Electrical and Electronic Equipment (EEE)
+Full name “Basel Convention on the Control of Transboundary Movements of Hazardous Wastes and Their Disposal”
+MBR – Master Boot Record
+GPT – GUID Partition Table (GUID – Global Unique Identifier for an item)
+Windows Dynamic Storage – Similar functionality to what can be done with Raid
+FAT - File Allocation Table
+LBA (logical block address)
+RAID (Redundant Array of Independent/Inexpensive Disks) 
+FAT (File Allocation Table)
+exFAT (Extended File Allocation Table)
+NTFS (New Technology File System)
+APFS (Apple File System)
+Ext4 (Fourth Extended File System)
+hard disk drive
+Solid-State Drive
+Redundant Array of Independent Disks (RAID)
+Universal Serial Bus
+compact disc (CD)
+Digital versatile disc (DVD)
+Internet Protocol address
+the Internet Assigned Numbers Authority (IANA)
+Internet Service Provider (ISP)
+Domain Name System (DNS)
+Network Interface Card (NIC)
+Transmission Control Protocol (TCP)
+Dynamic Host Configuration Protocol
+Institute of Electrical and Electronics Engineers (IEEE)
+International Telecommunications Union (ITU)
+American National Standards Institute (ANSI)
+British Standards Institution (BSI)
+CEN (Comité Européen de Normalisation) (the European committee for standardization)
+The International Organization for Standardization (ISO)
+VLSI - Very-Large-Scale Integration
+Central Processing Unit (CPU)
+ENIAC - Electronic Numerical Integrator and Computer
+• Primary Memory
+• RAM - Random Access Memory : two types of RAM, dynamic RAM (DRAM) and static RAM (SRAM)
+• ROM -  Read Only Memory
+	There are three types of ROM Chips:
+	• PROM : Programable Read Only Memory
+	• EPROM : Erasable Programable Read Only Memory
+	• EEPROM : Electrically Erasable Programable Read Only Memory 
+• Secondary Memory
+• Tertiary Memory
+SO-DIMM stands for Small Outline Dual In-Line Memory Module - mostly for laptops
+SDRAM == synchronous dynamic random-access memory - mostly for desktop 
+Solid State Drives (SSD)
+HARD DRIVE (four categories)
+	• SATA ATA – Serial AT Attachment - means data is sent serially
+	• PATA ATA – Parallel AT Attachment – means data is sent in parallel
+	• SCSI – Small Computer Systems Interface – data is sent by it a separate bus
+		(cable) – typically used in servers Data is sent in Parallel
+	• SAS – Serial Attached SCSI technology. It uses serial technology to
+		obtain higher transmission speed and improves internal space by
+		shortening the cable. and to provide compatibility with the SAT
+NVMe (Non-Volatile Memory Express)
+Mean Time To Failure (MTTF)
+S.M.A.R.T (Self-Monitoring, Analysis, and Reporting Technology)
+SLC (Single-Level Cell)
+MLC (Multi-Level Cell)
+USB (Universal Serial Bus)
+DisplayPort (DP)
+Video Graphics Adapter (VGA)
+Digital Visual Interface (DVI)

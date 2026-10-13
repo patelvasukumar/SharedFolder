@@ -1,0 +1,8 @@
+added_value 0020
+destination_array 1020
+divisor    0003
+end_destination_array 103c
+end_source_array 101c
+loop       200c
+loop_num   0000
+source_array 1000

@@ -1,0 +1,61 @@
+-- Queries command file
+-- Authors - Sabit Naim, Nibir Nandi Dibbo, Vasukumar Patel
+-- This query contains queries.
+
+-- 1. A simple query that pulls all columns and rows from a table
+SELECT *
+FROM STUDENT;
+
+-- 2. A query that displays a subset of columns
+SELECT GuardianID, Name, ChildrenNames
+FROM LEGAL_GUARDIANS;
+
+-- 3. A query that displays a subset of columns with a single clause (predicate) WHERE statement
+SELECT CourseID, CourseName
+FROM COURSES
+WHERE CourseLocation = 'Room S';
+
+-- 4. A query that displays a subset of columns with a multi-clause (predicate) WHERE statement using AND/OR
+SELECT Street, City, PostalCode
+FROM ADDRESSES
+WHERE City = 'Brighton' OR City = 'Sunnydale';
+
+-- 5. A query that performs a single table join. In other words, you are joining 2 tables
+SELECT student.StudentName, legal_guardians.GuardianID, legal_guardians.Name AS GuardianName
+FROM student
+JOIN legal_guardians ON student.StudentName = legal_guardians.ChildrenNames;
+
+-- 6. A query that performs a multi-table join. In other words, you are joining 3 or more tables.
+SELECT student.StudentName, extracurricular_activities.TeamName, disciplinary_action.ActionTaken AS Penalty
+FROM student
+JOIN extracurricular_activities ON student.StudentName = extracurricular_activities.StudentName
+JOIN disciplinary_action ON student.StudentName = disciplinary_action.StudentName
+
+-- 7. A query that performs an aggregate (count, min, max, sum, avg, etc.).
+SELECT AVG(GPA_Periodic) AS AVG_GPA_Periodic
+FROM grades
+
+-- 8. A query that performs an aggregate (count, min, max, sum, avg, etc.) with a GROUP BY.
+SELECT Gender, COUNT(StudentID) AS NumberOfStudents
+FROM student
+GROUP BY Gender
+
+-- 9. A query that performs an aggregate (count, min, max, sum, avg, etc.). with a GROUP BY and a HAVING clause
+SELECT TeamName, COUNT(StudentName) AS NumberOfParticipants
+FROM extracurricular_activities
+GROUP BY TeamName
+HAVING COUNT(StudentName) > 5
+
+-- 10. A query that performs a subquery either as part of the WHERE clause or as a derived/virtual table.
+SELECT StudentName, DateDroppedOut
+FROM student
+WHERE DateDroppedOut >
+	(SELECT MIN(DateDroppedOut)
+	FROM student)
+
+-- 11. A query that performs an aggregate with a join and a group by.
+SELECT addresses.City, COUNT(student.StudentID) AS NumberOfStudents
+FROM student
+JOIN addresses ON student.StudentID = addresses.AddressID
+GROUP BY addresses.City
+ORDER BY NumberOfStudents DESC;

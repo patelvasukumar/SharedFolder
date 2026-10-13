@@ -1,0 +1,46 @@
+
+as12, an absolute assembler for Motorola MCU's, version 1.2h
+
+                        ; Indexed_Addressing_Examples2.asm
+1000                            org     $1000
+1000 ff 03 f9 80 92 88  Array   db      $FF, $03, $F9, $80, $92, $88, $55, $AA
+     55 aa
+1008                    EndArray
+                        
+2000                            org     $2000
+                        
+2000 ce 10 00                   ldx     #Array  ; point X to Array
+2003 a6 31                      ldaa    2,x+    ; AFTER the execution of this line of code (LOC)
+                                                ; A = ?
+                                                ; X = ?
+                        
+2005 e6 32                      ldab    3,x+    ; AFTER the execution of this LOC
+                                                ; B = ?
+                                                ; X = ?
+                        
+2007 ec 3c                      ldd     4,x-    ; AFTER the execution of this LOC
+                                                ; A = ?
+                                                ; B = ?
+                                                ; X = ?
+                        
+2009 ce 10 08                   ldx     #EndArray  ; point X to one past the end of the Array
+200c a6 2e                      ldaa    2,-x    ; AFTER the execution of this line of code (LOC)
+                                                ; X = ?
+                                                ; A = ?
+                        
+                        
+200e e6 2d                      ldab    3,-x    ; AFTER the execution of this LOC
+                                                ; X = ?
+                                                ; B = ?
+                        
+                        
+2010 ec 22                      ldd  	3,+x    ; AFTER the execution of this LOC
+                                                ; X = ?
+                        			; A = ?
+                                                ; B = ?
+                        
+                        	end
+
+Executed: Sun Jul 20 11:29:08 2025
+Total cycles: 16, Total bytes: 26
+Total errors: 0, Total warnings: 0

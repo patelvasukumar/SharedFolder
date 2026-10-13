@@ -1,0 +1,119 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36" version="24.7.17">
+  <diagram name="Page-1" id="id7FQCu8qBaVmKMLrzBs">
+    <mxGraphModel dx="1615" dy="909" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="natuUuyTSQIs-k60WNJ0-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="natuUuyTSQIs-k60WNJ0-1" target="natuUuyTSQIs-k60WNJ0-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-1" value="Start" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="134" y="10" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="natuUuyTSQIs-k60WNJ0-4" target="natuUuyTSQIs-k60WNJ0-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-4" value="Output &quot;Enter the value of the radius: &quot;&lt;div&gt;Input radius&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="115.88" y="132" width="188" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="natuUuyTSQIs-k60WNJ0-6" target="natuUuyTSQIs-k60WNJ0-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-6" value="Output &quot;Enter the value of the height: &quot;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Input height&lt;/span&gt;&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="89.5" y="217" width="188" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="natuUuyTSQIs-k60WNJ0-11" target="natuUuyTSQIs-k60WNJ0-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-11" value="Output &quot;Enter the value of the height: &quot;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Input height&lt;/span&gt;&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="193" y="305" width="188" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="natuUuyTSQIs-k60WNJ0-16" target="natuUuyTSQIs-k60WNJ0-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-16" value="&lt;div&gt;&lt;span style=&quot;font-size:16.0pt;line-height:&lt;br/&gt;107%;font-family:&amp;quot;Aptos Narrow&amp;quot;,sans-serif;mso-fareast-font-family:Calibri;&lt;br/&gt;mso-fareast-theme-font:minor-latin;mso-bidi-font-family:Arial;mso-ansi-language:&lt;br/&gt;EN-CA;mso-fareast-language:EN-US;mso-bidi-language:AR-SA&quot; lang=&quot;EN-CA&quot;&gt;Object declaration&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;span style=&quot;font-size:16.0pt;line-height:&lt;br/&gt;107%;font-family:&amp;quot;Aptos Narrow&amp;quot;,sans-serif;mso-fareast-font-family:Calibri;&lt;br/&gt;mso-fareast-theme-font:minor-latin;mso-bidi-font-family:Arial;mso-ansi-language:&lt;br/&gt;EN-CA;mso-fareast-language:EN-US;mso-bidi-language:AR-SA&quot; lang=&quot;EN-CA&quot;&gt;Object theResult =&lt;br&gt;new PyramidCylinder(radius, height)&lt;/span&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="48" y="399" width="385" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="natuUuyTSQIs-k60WNJ0-22" target="natuUuyTSQIs-k60WNJ0-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-22" value="Declaration&amp;nbsp;&lt;div&gt;String message = &quot;The volume of the total Payramid Cylinder: &quot;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="54.5" y="532" width="296" height="68" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="natuUuyTSQIs-k60WNJ0-24" target="natuUuyTSQIs-k60WNJ0-38">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="223.5" y="707" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-24" value="printf(message)" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="127.5" y="622" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="natuUuyTSQIs-k60WNJ0-38" target="natuUuyTSQIs-k60WNJ0-30">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="223.5" y="803" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="natuUuyTSQIs-k60WNJ0-30" target="natuUuyTSQIs-k60WNJ0-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-30" value="&lt;pre&gt;&lt;span style=&quot;line-height: 107%;&quot; lang=&quot;EN-CA&quot;&gt;&lt;font face=&quot;Helvetica&quot; style=&quot;font-size: 14px;&quot;&gt;printf(theResult.calculatePyramidVolume(radius,height))&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;/pre&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="21" y="794" width="404" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="natuUuyTSQIs-k60WNJ0-32" target="natuUuyTSQIs-k60WNJ0-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-32" value="Declaration&amp;nbsp;&lt;div&gt;String whomade = &quot;The program is created by &quot;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="71.5" y="881" width="262" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="natuUuyTSQIs-k60WNJ0-16" target="natuUuyTSQIs-k60WNJ0-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-53" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="natuUuyTSQIs-k60WNJ0-35" target="natuUuyTSQIs-k60WNJ0-52">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-35" value="printf(whomade + &quot;Vasukumar Patel&quot;)" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="32" y="1002" width="374" height="65.5" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-38" value="&lt;blockquote style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;line-height: 12.84px; font-family: &amp;quot;Aptos Narrow&amp;quot;, sans-serif;&quot; lang=&quot;EN-CA&quot;&gt;Object Calls Method&lt;/span&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;line-height: 12.84px; font-family: &amp;quot;Aptos Narrow&amp;quot;, sans-serif;&quot; lang=&quot;EN-CA&quot;&gt;theResult.calculatePyramidVolume(radius,height)&lt;/span&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="48" y="708" width="323.75" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-41" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="natuUuyTSQIs-k60WNJ0-39" target="natuUuyTSQIs-k60WNJ0-40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-39" value="Start" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="554" y="14" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-43" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="natuUuyTSQIs-k60WNJ0-40" target="natuUuyTSQIs-k60WNJ0-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-40" value="Declaration&amp;nbsp;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;double radius&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;double height&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="489" y="125" width="240" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-47" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="natuUuyTSQIs-k60WNJ0-42" target="natuUuyTSQIs-k60WNJ0-46">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-42" value="getRadius()&amp;nbsp;&lt;div&gt;setRadius( newRadius )&amp;nbsp;&lt;/div&gt;&lt;div&gt;getHeight()&amp;nbsp;&lt;/div&gt;&lt;div&gt;setHeight( newHeight )&amp;nbsp;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="481.5" y="255" width="242.5" height="91" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-49" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="natuUuyTSQIs-k60WNJ0-46" target="natuUuyTSQIs-k60WNJ0-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-46" value="calculateSingleVolume(radius,height)" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="486" y="381" width="248" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-51" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="natuUuyTSQIs-k60WNJ0-48" target="natuUuyTSQIs-k60WNJ0-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-48" value="calculatePyramidVolume(radius,height)&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;theTotalVolumeFirst = calculateSingleVolume(radius, height)&lt;/div&gt;&lt;div&gt;theTotalVolumeSecond =&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;calculateSingleVolume(radius*0.8, height)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;theTotalVolumeThird =&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;calculateSingleVolume(radius*0.6, height)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;theTotalVolume = theTotalVolumeFirst + theTotalVolumeSecond + theTotalVolumeThird&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="526" width="353" height="176" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-50" value="Stop" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="511" y="752" width="171" height="133" as="geometry" />
+        </mxCell>
+        <mxCell id="natuUuyTSQIs-k60WNJ0-52" value="Stop" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="541" y="954" width="80" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

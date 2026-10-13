@@ -1,0 +1,5 @@
+# Definitions of CGI programs
+# <Alias 1> <Alias 2> ...;<Full path to CGI program> | [PHPBuildIn]
+
+.php .php4 .php3;PHPBuildIn
+# .pl;C:\Perl\bin\perl.exe

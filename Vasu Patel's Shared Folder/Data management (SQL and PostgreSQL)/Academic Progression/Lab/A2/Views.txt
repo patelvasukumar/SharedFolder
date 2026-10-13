@@ -1,0 +1,16 @@
+-- Views command file
+-- Authors - Sabit Naim, Nibir Nandi Dibbo, Vasukumar Patel
+-- This query contains views.
+
+-- 1. A dynamic view for query 4 in the previous task
+CREATE VIEW DynamicView AS
+SELECT Street, City, PostalCode
+FROM ADDRESSES
+WHERE City = 'Brighton' OR City = 'Sunnydale';
+
+-- 2. A materialized view for query 9 in the previous task
+CREATE MATERIALIZED VIEW MaterializedView AS
+SELECT TeamName, COUNT(StudentName) AS NumberOfParticipants
+FROM extracurricular_activities
+GROUP BY TeamName
+HAVING COUNT(StudentName) > 5

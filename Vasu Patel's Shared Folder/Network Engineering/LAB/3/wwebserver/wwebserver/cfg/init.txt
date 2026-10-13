@@ -1,0 +1,4 @@
+httpHost=192.168.1.122
+httpPort=8080
+docPath=E:/AC17W/labs/lab3/wwebserver
+openURL=

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>150</y>
+      <w>280</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>Battery
+--
+_+EXPECTED_DIAMETER: double = 3.5_
+_+EXPECTED_HEIGHT: double = 10.3_
+-diameter: double
+-height: double
+--
++Battery()
++Battery(diameter: double, height: double)
++getDiameter(): double
++setDiameter(diameter: double): void
++getHeight(): double
++setHeight(height: double): void
++toString(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>30</x>
+      <y>50</y>
+      <w>240</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>	Student Name: Vasukumar Patel
+	Student ID: 041153940
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>530</x>
+      <y>350</y>
+      <w>310</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>User
+--
+
+_-keyboard: Scanner_
+
+--
+-User()
+_+inputInterger(message: String): int_
+_+inputDouble(message: String): double_
+_+inputString(message: String): String_
+_-inputInterger(): int_
+_-inputDouble(): double_
+_-inputString(): String_
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>150</y>
+      <w>330</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>BatteryChecker
+--
+_-EPSILON_DIAMETER: double = 0.1 + 1.0E-14_
+_-EPSILON_HEIGHT: double =0.3 + 1.E -14_
+--
++checkWithTolerance(battery: Battery): boolean
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>420</y>
+      <w>410</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>Driver
+--
+
+--
+_+main(args: String[]): void_</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

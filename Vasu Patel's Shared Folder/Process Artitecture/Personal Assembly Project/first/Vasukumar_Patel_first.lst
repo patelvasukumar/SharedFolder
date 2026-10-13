@@ -1,0 +1,25 @@
+
+as12, an absolute assembler for Motorola MCU's, version 1.2h
+
+                        ; First.asm
+                        ;
+                        ; Author:       	Vasukumar Patel
+                        ; Student Number:       041153940
+                        ; Date:                 5th June 2025
+                        ;
+                        ; Purpose:              Add the following values: $25 + $37 - $1
+                        ;
+1000                            org     $1000   ; Origin for program Date
+1000 25                 x:      db      $25     ; First added is at location x
+1001 37                 y:      db      $37     ; Second added is at location y
+1002                    z:      ds      1       ; Sum will be stored at location z
+2000                            org     $2000   ; Origin for program Instructions
+2000 b6 10 00                   ldaa    x       ; Load value at p into accumulator x
+2003 bb 10 01                   adda    y       ; Add value at q into accumulator y
+2006 43                         deca            ; Decrement x
+2007 7a 10 02                   staa    z       ; Stroe accumulator a at location z
+                                end
+
+Executed: Thu Jun 05 13:12:26 2025
+Total cycles: 13, Total bytes: 12
+Total errors: 0, Total warnings: 0
