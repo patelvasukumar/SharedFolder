@@ -1,0 +1,235 @@
+plantuml
+@startuml
+left to right direction
+scale 0.8
+
+package GameView {
+
+class MainView{
+	{static} + main(args : String) : Void
+	object mainController : MainController
+	object designMode : DesignModeView
+	object settingMode : SettingModeView
+	object playMode : PlayModeView
+}
+
+class DesignModeView{
+	object playerController : PlayerController
+	object questionController : QuestionController
+	+ designMain() : void
+	+ displayList(questionID : int, languageID : String) : void
+}
+
+class SettingModeView{
+	object playerController : PlayerController
+	object questionController : QuestionController
+	+ settingMain() : void
+}
+
+class PlayModeView{
+	object playerController : PlayerController
+	object questionController : QuestionController
+	object winnigBarController : WinnigBarController
+	object helpLineController : HelpLineController
+	+ playMain() : void
+	+ displayQuestion(questionID : int, languageID : String) : void
+	+ displayPlayerOnProfile(name : String, id : int) : void
+	+ displayHelpLines() : void
+	+ displayWinningBar() : void
+}
+
+
+}
+
+
+
+
+package GameController{
+
+
+class SettingController{
+	+ changeLanguage() : void
+	+ changeLookAndFeel() : void
+	+ changeTheme() : void
+}
+
+class PlayerController {
+
+    + editInformation(name : String, nationality : String, gender : String) : void
+    + deletePlayer(name : String, id : int) : void
+    + addPlayer(name : String, nationality : String, gender : String) : void
+
+}
+
+class QuestionController {
+
+    + addQuestion(question : String) : void
+    + editQuestion(question : String, questionID : int, languageID : String) : void
+    + deleteQuestion(question : String, questionID : int, languageID : String) : void
+
+}
+
+class MainController{
+	+ switchPlayMode() : void
+	+ switchDesignMode() : void
+	+ switchModeAlwaysON() : void
+}
+
+abstract class CommonComponents{
+	+ createComponents(name : String) : JComponent 
+	+ elementChange(changeID : int) : int
+
+}
+
+class QuitAndConfrim{
+	+ quitAndConfrimMain(decision : int) : void
+}
+
+class WinnigBarController{
+	+ final rows : int 
+	+ amounts[] : long
+	+ increasePrice(true : boolean) : void
+}
+
+abstract class HelpLineControl{
+	+ object superposition : Superposition
+	+ object entanglement : Entanglement
+	+ object interference : Interference 
+	+ HelpLineControlBar() : void
+}
+
+enum LifeLineType{
+	SUPERPOSITION
+	ENTANGLEMENT
+	INTERFERENCE
+} 
+
+}
+
+
+
+
+package GameModel{
+
+class PlayerModel{
+	+ name : String
+	+ nationality : String
+	+ gender : String
+	+ id : int
+}
+
+class QuestionModel {
+    - question : String
+    - languageID : String
+    - questionID : int
+    - options : ArrayList<String>
+}
+
+class Superposition{
+	+ eliminateTwoOptions()
+}
+
+class Entanglement{
+	+ getAudiencePoll() : <Map,String>
+}
+
+class Interference {
+	+ getFriendSuggestions() : String
+}
+
+class GameModelClass{
+    - currentQuestionIndex : int
+    - score : int
+    - player : PlayerModel
+    - questions : ArrayList<QuestionModel>
+    - usedLifeLines : ArrayList<LifeLineType>
+
+    + startGame() : void
+    + nextQuestion() : QuestionModel
+    + updateScore(points : int) : void
+    + isGameOver() : boolean
+}
+
+class ScoreModel{
+    - currentLevel : int
+    - totalAmount : long
+    - prizeAmounts : long[]
+
+    + increaseLevel() : void
+    + calculatePrize() : long
+}
+
+class TimerModel{
+    - timeLimit : int
+    - remainingTime : int
+
+    + startTimer() : void
+    + stopTimer() : void
+    + resetTimer() : void
+}
+
+
+}
+
+
+
+
+
+
+' GameView
+
+MainView <|..  DesignModeView
+MainView <|.. SettingModeView
+MainView <|.. PlayModeView
+
+
+
+' GameController
+
+DesignModeView <|.. PlayerController
+DesignModeView <|.. QuestionController
+
+SettingModeView -- PlayerController
+SettingModeView -- QuestionController
+SettingModeView <|.. SettingController 
+
+PlayModeView ..> QuestionController
+
+MainController --> MainView
+
+CommonComponents <.. SettingModeView : extends
+CommonComponents <.. DesignModeView : extends
+CommonComponents <.. PlayModeView : extends
+CommonComponents <.. QuitAndConfrim : extends
+
+PlayModeView <.. WinnigBarController
+PlayModeView <.. HelpLineControl
+
+PlayModeView ..> QuitAndConfrim 
+QuitAndConfrim ..> WinnigBarController
+
+
+
+' GameModel
+
+PlayerController --> PlayerModel
+QuestionController --> QuestionModel
+HelpLineControl <.. Superposition : extends
+HelpLineControl <.. Entanglement : extends
+HelpLineControl <.. Interference : extends
+
+GameModelClass --> PlayerModel
+GameModelClass --> QuestionModel
+GameModelClass --> LifeLineType
+
+GameModelClass --> ScoreModel
+
+GameModelClass --> TimerModel
+
+
+legend left
+Made by Vasu Patel and Kavya Vasani
+endlegend
+
+
+@enduml

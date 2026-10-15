@@ -1,0 +1,129 @@
+@startuml
+scale 0.8
+
+actor User
+actor Player
+actor Admin
+actor Timer
+actor System
+
+usecase "Select Play Mode" as UC1
+usecase "Select Design Mode" as UC2
+usecase "Select Settings" as UC3
+
+User --> Player
+User --> Admin
+
+Player -- UC1
+Admin -- UC2
+Player <. UC3 : extends
+Admin <. UC3 : extends
+
+' Design Mode
+
+package "Design Mode" {
+
+usecase "Select Question Editor" as QC1
+usecase "Add Question" as QC2
+usecase "Delete Question" as QC3
+usecase "Edit Question" as QC4
+
+UC2--QC1
+QC1 <. QC2 : extends
+QC1 <. QC3 : extends
+QC1 <. QC4 : extends
+
+usecase "Select Player Editor" as PC1
+usecase "Select Add Player" as PC2
+usecase "Delete Player" as PC3
+
+UC2--PC1
+PC1 <. PC2 : extends
+PC1 <. PC3 : extends
+
+	'Edit information pannel
+	usecase "Edit Information" as PC4
+ 	
+	PC1 <. PC4 : extends
+
+}
+
+' Settings Option
+
+package "Settings" {
+
+usecase "Select Themes" as SC1
+usecase "Change Text Size" as SC2
+usecase "Change Language" as SC3
+
+UC3 <. SC1 : extends
+UC3 <. SC2 : extends
+UC3 <. SC3 : extends
+
+}
+
+'Play Mode
+
+package "Play Mode" {
+
+usecase "Choose Player" as PM1
+usecase "Choose Option" as PM2
+usecase "Compare Mode" as PM3
+
+UC1 -- PM1
+PM1 <. PM2 : extends
+PM1 <. PM3 : extends
+
+	'Choose Option Pannel
+	usecase "Select Help" as CU1
+	usecase "Right Option" as CU2
+	usecase "Wrong Option" as CU3
+	usecase "Time Out" as CU5
+	
+	PM2 <. CU1 : extends
+	PM2 <. CU2 : extends
+	PM2 <. CU3 : extends
+	PM2 <. CU5 : extends
+
+	'After right option
+	usecase "Increase Price" as RU1
+	usecase "Finish" as RU2
+
+	CU2 <. RU1 : include
+	RU1 <. PM2 #line:red : include
+  	CU2 <. RU2 #line:blue : include
+  	RU2 <. PM1 #line:orange : include
+
+	'After Wrong Option [Since player give wrong answer, he is not going to receive any price, it will be zero.]
+	usecase "Wrong Answer" as SG1
+  	usecase "Set Amount As Zero" as SG0
+	usecase "Quitting" as SG2
+	usecase "Current Amount As Winning Amount" as SG3
+	usecase "Stop The Game" as SG4
+
+	  PM2 <. SG1 #line:pink : extends
+    SG1 .> SG0 #line:purple : include
+  	SG0 .> SG4 #line:brown : include
+
+  	PM2 <. SG2 #line:green : extends 
+  	SG2 .> SG4 #line:gold : include
+
+  	PM2 <. CU5 #line:yellow : extends
+  	CU5 .> SG4 #line:crimson : include
+
+  	SG4 .> PM1 #line:lime : include
+
+  	Timer -- CU5 #line:DarkBlue
+
+  	SG2 .> SG3 #line:Fuchsia : include
+  	SG3 .> SG4 #line:GreenYellow : include
+  
+  'System Actor 
+  System--RU1 
+  System--RU2
+  System--SG4
+  System--SG0
+
+}
+
+@enduml

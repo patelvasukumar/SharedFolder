@@ -1,0 +1,13 @@
+https://www.geeksforgeeks.org/system-design/use-case-diagram/
+
+https://www.educative.io/answers/what-are-include-and-extend-relationships-in-a-use-case-diagram
+
+https://www.educative.io/answers/what-is-generalization-in-a-use-case-diagram
+
+https://www.geeksforgeeks.org/websites-apps/crud-full-form/
+
+https://www.geeksforgeeks.org/computer-graphics/what-is-graphical-user-interface/
+
+https://plantuml.com/color
+
+https://plantuml.com/salt

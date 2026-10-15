@@ -1,0 +1,12 @@
+@startsalt
+skinparam dpi 400
+{
+
+{ {+ <size:15> <:bust_in_silhouette:> </size> } | . | {+ <size:15> <:telephone_receiver:> </size> } | {+ <size:15> <:busts_in_silhouette:> </size> } | {+ <size:15> <:arrows_counterclockwise:> </size> } | {+ <size:20> 50:50 </size> } | . | {+ <size:15> <:gear:> </size> } }
+{ . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | <img:"WinningBar.png"> }
+{ <size:15> <&account-logout> </size> | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | Current Amount : {+ . | . | $ 0 | . | . } }
+{ . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | <img:"timer.jpg"> }
+{ . | . | . | <img:"QuestionPannel.jpeg"> }
+{ . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | . | [Confirm] }
+}
+@endsalt

@@ -1,0 +1,15 @@
+@startsalt
+skinparam dpi 400
+skinparam Backgroundcolor palegreen
+{+
+
+<&arrow-circle-left> | . | . | <:gear:> 
+.
+.
+. | . | Hello  Admin,  Welcome  To  The  Design  Mode ! | .
+. | . | [          Question Editor          ] | . 
+. | . | [Player Editor (default : 1 player) ] | .
+
+
+}
+@endsalt
