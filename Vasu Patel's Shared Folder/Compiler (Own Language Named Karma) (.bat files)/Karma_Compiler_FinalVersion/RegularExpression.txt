@@ -1,0 +1,21 @@
+Token Type         			Example    			RE / Pattern       
+
+Keyword (KW_T)      		 if, else                       	  \bif   
+
+Keyword (KW_T)              printK, intK, mainK              [a-zA-Z_][a-zA-Z0-9_]*K            
+
+Identifier (MNID_T)  		 karmaScoreK, 	             [a-zA-Z_][a-zA-Z0-9_]*K? 
+
+String (STR_T)      			' Hello ' 				      '[^']*'               
+
+Comment (COMMENT_T)   	@sunya ... @`                   @[^@]*@             
+
+Number (NUM_T)      		  0, 42                               [0-9]+
+
+Operator            				>					>
+
+Symbol            				;                               	;     
+
+Parentheses         			      ( , )                                   (  
+
+Braces              			     { , }                                    {             

@@ -1,0 +1,16 @@
+{
+  "version": "0.2.1",
+  "defaults": {},
+  "configurations": [
+    {
+        "type": "default",
+        "project": "CMakeLists.txt",
+        "projectTarget": "Vasu940_Kavya941.exe",
+        "name": "Vasu940_Kavya941.exe",
+        "args": [
+            2,
+            "CODED.txt"
+        ]
+    }
+  ]
+}

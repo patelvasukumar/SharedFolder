@@ -1,0 +1,37 @@
+	=---------------------------------------=
+	|  COMPILERS - ALGONQUIN COLLEGE (W26)  |
+	=---------------------------------------=
+	    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@     
+	    @@                            @@     
+	    @@                            @@     
+	    @@       @@@@        @@@@     @@     
+	    @@       @@@@     @@@@        @@     
+	    @@       @@@@  @@@@           @@     
+	    @@       @@@@@@@@             @@     
+	    @@       @@@@@@@@             @@     
+	    @@       @@@@  @@@@           @@     
+	    @@       @@@@     @@@@        @@     
+	    @@       @@@@        @@@@     @@     
+	    @@                            @@     
+	    @@                            @@     
+	    @@    - - - K A R M A - - -   @@     
+	    @@      BY VASU AND KAVYA     @@     
+	    @@                            @@     
+	    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@     
+	                                         
+	[COMPILER SCRIPT .......................]
+	                                         
+
+[Option '5': Starting WRITER .....]
+
+Reading file CODED.txt ....Please wait
+
+Lines from content:
+Program started
+Radius is:   5
+Area of circle (pi r square) is:   78.54
+acha khaasa bada circle hai 
+
+Variable values:
+radiusK = 5
+areaK = 78.54
