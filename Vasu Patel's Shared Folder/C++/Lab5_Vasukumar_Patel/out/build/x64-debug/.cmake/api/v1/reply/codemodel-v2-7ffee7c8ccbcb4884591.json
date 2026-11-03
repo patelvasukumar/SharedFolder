@@ -1,0 +1,61 @@
+{
+	"configurations" : 
+	[
+		{
+			"abstractTargets" : [],
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f6f22219c74102c3da70.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Lab5_Vasukumar_Patel",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Lab5_Vasukumar_Patel::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Lab5_Vasukumar_Patel-Debug-890856b4343dfc2327be.json",
+					"name" : "Lab5_Vasukumar_Patel",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "E:/Level_4/C++_GitHubLinked/vasuPrivate/Lab5_Vasukumar_Patel/out/build/x64-debug",
+		"source" : "E:/Level_4/C++_GitHubLinked/vasuPrivate/Lab5_Vasukumar_Patel"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	}
+}

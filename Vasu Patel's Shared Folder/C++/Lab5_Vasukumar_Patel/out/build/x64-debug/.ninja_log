@@ -1,0 +1,8 @@
+# ninja log v6
+198	2715	7972806195544028	CMakeFiles/Lab5_Vasukumar_Patel.dir/sourceFilesEmployee/HourlyEmployee.cpp.obj	dd60f5b2f2d59919
+166	2823	7972806195213757	CMakeFiles/Lab5_Vasukumar_Patel.dir/sourceFilesEmployee/SalariedEmployee.cpp.obj	99af5ba8f527fbc
+217	2829	7972806195727353	CMakeFiles/Lab5_Vasukumar_Patel.dir/sourceFilesEmployee/CommissionEmployee.cpp.obj	1bd21f626d901d98
+2952	5570	7972806223079627	Lab5_Vasukumar_Patel.exe	428a9cc074596669
+28	2836	7972806193843118	CMakeFiles/Lab5_Vasukumar_Patel.dir/main.cpp.obj	f4585a302034585a
+66	2844	7972806194218721	CMakeFiles/Lab5_Vasukumar_Patel.dir/student.cpp.obj	19e154089e5d33f3
+94	2951	7972806194507213	CMakeFiles/Lab5_Vasukumar_Patel.dir/sourceFilesEmployee/Employee.cpp.obj	232ff3439f1cee25
