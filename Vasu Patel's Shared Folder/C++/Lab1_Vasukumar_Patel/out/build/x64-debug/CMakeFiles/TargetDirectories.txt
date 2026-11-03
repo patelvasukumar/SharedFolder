@@ -1,0 +1,3 @@
+C:/Users/l/source/repos/Lab1_Vasukumar_Patel/out/build/x64-debug/CMakeFiles/Lab1_Vasukumar_Patel.dir
+C:/Users/l/source/repos/Lab1_Vasukumar_Patel/out/build/x64-debug/CMakeFiles/edit_cache.dir
+C:/Users/l/source/repos/Lab1_Vasukumar_Patel/out/build/x64-debug/CMakeFiles/rebuild_cache.dir
