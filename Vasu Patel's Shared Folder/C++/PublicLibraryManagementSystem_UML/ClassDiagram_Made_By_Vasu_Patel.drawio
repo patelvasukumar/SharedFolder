@@ -1,0 +1,214 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="2605" dy="1318" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2336" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--0" parent="WIyWlLk6GJQsqaUBKTNV-1" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" value="&lt;&lt;Abstract&gt;&gt;&#xa;Loan" vertex="1">
+          <mxGeometry height="380" width="560" x="960" y="40" as="geometry">
+            <mxRectangle height="40" width="160" x="280" y="40" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aJSDO-_PX2scObMe0zip-19" parent="zkfFHV4jXpPFQw0GAbJ--0" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" value="&amp;nbsp;# loanID : string&amp;nbsp; &amp;nbsp;&lt;div&gt;&amp;nbsp;# patronID : string&lt;/div&gt;&lt;div&gt;&amp;nbsp;# itemID : string&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp;# checkoutDate : string&lt;/div&gt;&lt;div&gt;&amp;nbsp;# dueDate : string&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="560" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--4" parent="zkfFHV4jXpPFQw0GAbJ--0" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="20" width="560" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="2RKMhSo4ycKMGXXXC48I-0" parent="zkfFHV4jXpPFQw0GAbJ--0" style="text;align=left;verticalAlign=top;spacingLeft=8;strokeColor=none;fillColor=none;rotatable=0;" value="+ Loan(loanID: string, patronID: string, itemID: string, checkoutDate: string, dueDate: string)&#xa;+ ~Loan()&#xa;&#xa;+ computeFee() : double {abstract}&#xa;+ displayLoan() : string&#xa;&#xa;+ getLoanID() : string&#xa;+ getItemID() : string&#xa;+ getPatronID() : string&#xa;+ getCheckoutDate() : string&#xa;+ getDueDate() : string&#xa;&#xa;+ operator==(other: Loan) : bool&#xa;+ operator&lt;&lt; (ostream, Loan) : ostream   &lt;&lt;friend&gt;&gt;" vertex="1">
+          <mxGeometry height="106" width="560" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--6" parent="WIyWlLk6GJQsqaUBKTNV-1" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;arcSize=44;" value="StandardLoan" vertex="1">
+          <mxGeometry height="180" width="610" x="270" y="200" as="geometry">
+            <mxRectangle height="26" width="160" x="130" y="380" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2RKMhSo4ycKMGXXXC48I-1" parent="zkfFHV4jXpPFQw0GAbJ--6" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" value="&amp;nbsp;- loanPeriodDays : int" vertex="1">
+          <mxGeometry height="30" width="610" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--9" parent="zkfFHV4jXpPFQw0GAbJ--6" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="14" width="610" y="56" as="geometry" />
+        </mxCell>
+        <mxCell id="aJSDO-_PX2scObMe0zip-25" parent="zkfFHV4jXpPFQw0GAbJ--6" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;rounded=0;" value="&lt;div&gt;+ StandardLoan(loanID: string, patronID: string, itemID: string, checkoutDate: string, dueDate: string, days: int)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ computeFee() : double {override}&lt;/div&gt;&lt;div&gt;+ displayLoan() : string {override}&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ getLoanPeriodDays() : int&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="610" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="aJSDO-_PX2scObMe0zip-2" parent="WIyWlLk6GJQsqaUBKTNV-1" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;glass=0;swimlaneLine=1;arcSize=0;" value="LostItemLoan" vertex="1">
+          <mxGeometry height="180" width="610" x="1560" y="160" as="geometry">
+            <mxRectangle height="26" width="160" x="1720" y="200" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2RKMhSo4ycKMGXXXC48I-37" parent="aJSDO-_PX2scObMe0zip-2" style="text;align=left;verticalAlign=top;spacingLeft=8;strokeColor=none;fillColor=none;rotatable=0;" value="- replacementCost : double" vertex="1">
+          <mxGeometry height="30" width="610" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="aJSDO-_PX2scObMe0zip-3" parent="aJSDO-_PX2scObMe0zip-2" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="14" width="610" y="56" as="geometry" />
+        </mxCell>
+        <mxCell id="2RKMhSo4ycKMGXXXC48I-38" parent="aJSDO-_PX2scObMe0zip-2" style="text;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ LostItemLoan(loanID: string, patronID: string, itemID: string, checkoutDate: string, dueDate: string, cost: double)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ computeFee() : double {override}&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ displayLoan() : string {override}&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ getReplacementCost() : double&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="610" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="aJSDO-_PX2scObMe0zip-4" parent="WIyWlLk6GJQsqaUBKTNV-1" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" value="LibraryItem" vertex="1">
+          <mxGeometry height="340" width="490" x="1760" y="1000" as="geometry">
+            <mxRectangle height="26" width="160" x="130" y="380" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aJSDO-_PX2scObMe0zip-36" parent="aJSDO-_PX2scObMe0zip-4" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" value="&lt;div&gt;- itemID : string&lt;/div&gt;&lt;div&gt;- title : string&lt;/div&gt;&lt;div&gt;- creator : string&lt;/div&gt;&lt;div&gt;- format : string&lt;/div&gt;&lt;div&gt;- isAvailable : bool&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="490" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="aJSDO-_PX2scObMe0zip-5" parent="aJSDO-_PX2scObMe0zip-4" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="10" width="490" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="aJSDO-_PX2scObMe0zip-37" parent="aJSDO-_PX2scObMe0zip-4" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" value="&lt;div&gt;+ LibraryItem(itemID : string, title : string, creator : string, format : string, isAvailable : bool)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ updateAvailability(a : bool) : void&lt;/div&gt;&lt;div&gt;+ displayItemInfo() const : string&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ getID() const : string&lt;/div&gt;&lt;div&gt;+ getTitle() const : string&lt;/div&gt;&lt;div&gt;+ getCreator() const : string&lt;/div&gt;&lt;div&gt;+ getFormat() const : string&lt;/div&gt;&lt;div&gt;+ getAvailability() const : bool&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ operator==(other : LibraryItem) : bool&lt;/div&gt;&lt;div&gt;&amp;lt;&amp;lt;friend&amp;gt;&amp;gt; operator&amp;lt;&amp;lt;(ostream, LibraryItem) : ostream&lt;/div&gt;" vertex="1">
+          <mxGeometry height="200" width="490" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="aJSDO-_PX2scObMe0zip-6" parent="WIyWlLk6GJQsqaUBKTNV-1" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" value="Patron" vertex="1">
+          <mxGeometry height="390" width="500" x="1210" y="1280" as="geometry">
+            <mxRectangle height="26" width="160" x="130" y="380" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aJSDO-_PX2scObMe0zip-40" parent="aJSDO-_PX2scObMe0zip-6" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" value="&lt;div&gt;- patronID : string&lt;/div&gt;&lt;div&gt;- name : string&lt;/div&gt;&lt;div&gt;- phone : string&lt;/div&gt;&lt;div&gt;- email : string&lt;/div&gt;&lt;div&gt;- patronType : string&lt;/div&gt;&lt;div&gt;- fine : double&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="500" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="aJSDO-_PX2scObMe0zip-7" parent="aJSDO-_PX2scObMe0zip-6" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="30" width="500" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="aJSDO-_PX2scObMe0zip-42" parent="aJSDO-_PX2scObMe0zip-6" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;" value="&lt;div&gt;+ Patron(patronID : string, name : string, phone : string, email : string, patronType : string)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ getID() const : string&lt;/div&gt;&lt;div&gt;+ getName() const : string&lt;/div&gt;&lt;div&gt;+ getPhone() const : string&lt;/div&gt;&lt;div&gt;+ getEmail() const : string&lt;/div&gt;&lt;div&gt;+ getType() const : string&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ getFine() const : double&lt;/div&gt;&lt;div&gt;+ addFine(f : double) : void&lt;/div&gt;&lt;div&gt;+ clearFine() : void&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ updatePatronInfo(name : string) : void&lt;/div&gt;&lt;div&gt;+ displayPatron() const : string&lt;/div&gt;" vertex="1">
+          <mxGeometry height="220" width="500" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="VRRaC3-C4xOTnRFlB4VM-13" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="aJSDO-_PX2scObMe0zip-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;endArrow=diamond;endFill=1;endSize=20;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1249.7777777777778" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aJSDO-_PX2scObMe0zip-8" parent="WIyWlLk6GJQsqaUBKTNV-1" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" value="LibraryManager" vertex="1">
+          <mxGeometry height="692" width="700" x="900" y="520" as="geometry">
+            <mxRectangle height="26" width="160" x="900" y="520" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VRRaC3-C4xOTnRFlB4VM-11" parent="aJSDO-_PX2scObMe0zip-8" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="&lt;div&gt;- items : vector&amp;lt;unique_ptr&amp;lt;LibraryItem&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;- patrons : vector&amp;lt;unique_ptr&amp;lt;Patron&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;- loans : vector&amp;lt;unique_ptr&amp;lt;Loan&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;- holds : vector&amp;lt;HoldRecord&amp;gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="700" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="aJSDO-_PX2scObMe0zip-47" parent="aJSDO-_PX2scObMe0zip-8" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" value="&lt;div style=&quot;font-family: Lato, &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; font-size: 15px; text-wrap-mode: wrap;&quot;&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="700" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="aJSDO-_PX2scObMe0zip-9" parent="aJSDO-_PX2scObMe0zip-8" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="16" width="700" y="116" as="geometry" />
+        </mxCell>
+        <mxCell id="2RKMhSo4ycKMGXXXC48I-32" parent="aJSDO-_PX2scObMe0zip-8" style="text;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ addItem(item : unique_ptr&amp;lt;LibraryItem&amp;gt;) : void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ registerPatron(p : unique_ptr&amp;lt;Patron&amp;gt;) : void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ checkoutItem(l : unique_ptr&amp;lt;Loan&amp;gt;) : void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ returnItem(id : string) : void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ placeHold(holdID : string, patronID : string, itemID : string, pickupDate : string, status : string) : bool&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ updateHold(holdID : string, patronID : string, itemID : string, pickupDate : string, status : string) : bool&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ removeHold(holdID : string) : bool&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ placeItemForLoan(holdID : string, loan : unique_ptr&amp;lt;Loan&amp;gt;) : bool&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ restoreHold(record : HoldRecord) : void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ isOnHold(id : string) : bool&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ editItem(id : string, title : string, creator : string, format : string, available : bool) : bool&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ updateLoan(loanID : string, newLoan : unique_ptr&amp;lt;Loan&amp;gt;) : bool&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ renewLoan(loanID : string, newDueDate : string) : bool&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ processLostItem(loanID : string, replacementCost : double) : bool&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ searchItems(keyword : string) : vector&amp;lt;LibraryItem*&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ filterByFormat(format : string) : vector&amp;lt;LibraryItem*&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ findItemByID(id : string) : LibraryItem*&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ findPatronByID(id : string) : Patron*&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ findLoanByID(id : string) : Loan*&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ findHoldByID(id : string) : HoldRecord*&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ findHoldByID(id : string) const : const HoldRecord*&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ deleteItem(id : string) : bool&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ deletePatron(id : string) : bool&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ checkItemAvailability(id : string) : bool&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ clearAll() : void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ getHoldsSnapshot() : vector&amp;lt;HoldRecord&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ getPatronOutstandingFine(id : string) : double&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ getLoans() const : const vector&amp;lt;unique_ptr&amp;lt;Loan&amp;gt;&amp;gt;&amp;amp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ getItems() const : const vector&amp;lt;unique_ptr&amp;lt;LibraryItem&amp;gt;&amp;gt;&amp;amp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ getPatrons() const : const vector&amp;lt;unique_ptr&amp;lt;Patron&amp;gt;&amp;gt;&amp;amp;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="560" width="700" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="aJSDO-_PX2scObMe0zip-10" parent="WIyWlLk6GJQsqaUBKTNV-1" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=70;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" value="&lt;&lt;Template&gt;&gt;&#xa;AnalyticsEngine" vertex="1">
+          <mxGeometry height="170" width="430" x="640" y="1300" as="geometry">
+            <mxRectangle height="26" width="160" x="130" y="380" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aJSDO-_PX2scObMe0zip-11" parent="aJSDO-_PX2scObMe0zip-10" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="60" width="430" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="VRRaC3-C4xOTnRFlB4VM-15" parent="aJSDO-_PX2scObMe0zip-10" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="&lt;div&gt;+ computeTotalCirculation(v : vector&amp;lt;T&amp;gt;) : int&lt;/div&gt;&lt;div&gt;+ computeActiveLoansCount(v : vector&amp;lt;T&amp;gt;) : int&lt;/div&gt;&lt;div&gt;+ computeItemsByFormat(items : vector&amp;lt;T&amp;gt;) : unordered_map&amp;lt;string, int&amp;gt;&lt;/div&gt;&lt;div&gt;+ computeMostBorrowedItems(loans : vector&amp;lt;T&amp;gt;) : unordered_map&amp;lt;string, int&amp;gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="10" width="430" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="aJSDO-_PX2scObMe0zip-12" parent="WIyWlLk6GJQsqaUBKTNV-1" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" value="DataManager" vertex="1">
+          <mxGeometry height="130" width="280" x="600" y="1000" as="geometry">
+            <mxRectangle height="26" width="160" x="130" y="380" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aJSDO-_PX2scObMe0zip-13" parent="aJSDO-_PX2scObMe0zip-12" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="44" width="280" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="aJSDO-_PX2scObMe0zip-44" parent="aJSDO-_PX2scObMe0zip-12" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" value="&lt;div style=&quot;&quot;&gt;+ saveData(m : LibraryManager, file : string) : void&lt;/div&gt;&lt;div style=&quot;&quot;&gt;+ loadData(m : LibraryManager, file : string) : void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="280" y="74" as="geometry" />
+        </mxCell>
+        <mxCell id="aJSDO-_PX2scObMe0zip-14" parent="WIyWlLk6GJQsqaUBKTNV-1" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" value="GUI" vertex="1">
+          <mxGeometry height="1360" width="240" x="270" y="480" as="geometry">
+            <mxRectangle height="26" width="160" x="130" y="380" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2RKMhSo4ycKMGXXXC48I-15" parent="aJSDO-_PX2scObMe0zip-14" style="text;align=left;verticalAlign=top;spacingLeft=8;strokeColor=none;fillColor=none;rotatable=0;" value="- tabs: QTabWidget*&#xa;&#xa;- itemIdEdit: QLineEdit*&#xa;- itemTitleEdit: QLineEdit*&#xa;- itemCreatorEdit: QLineEdit*&#xa;- itemFormatEdit: QComboBox*&#xa;- itemAvailEdit: QComboBox*&#xa;- itemSearchEdit: QLineEdit*&#xa;- itemSearchFieldEdit: QComboBox*&#xa;- itemTable: QTableWidget*&#xa;&#xa;- patronIdEdit: QLineEdit*&#xa;- patronNameEdit: QLineEdit*&#xa;- patronPhoneEdit: QLineEdit*&#xa;- patronEmailEdit: QLineEdit*&#xa;- patronTypeEdit: QComboBox*&#xa;- patronSearchEdit: QLineEdit*&#xa;- patronSearchFieldEdit: QComboBox*&#xa;- patronTable: QTableWidget*&#xa;&#xa;- loanIdEdit: QLineEdit*&#xa;- loanPatronEdit: QLineEdit*&#xa;- loanItemEdit: QLineEdit*&#xa;- checkoutDateEdit: QDateEdit*&#xa;- loanDaysEdit: QLineEdit*&#xa;- replacementCostEdit: QLineEdit*&#xa;- loanTypeEdit: QComboBox*&#xa;- loanSearchEdit: QLineEdit*&#xa;- loanSearchFieldEdit: QComboBox*&#xa;- loanTable: QTableWidget*&#xa;&#xa;- holdIdEdit: QLineEdit*&#xa;- holdPatronEdit: QLineEdit*&#xa;- holdItemEdit: QLineEdit*&#xa;- holdPickupDateEdit: QDateEdit*&#xa;- holdStatusEdit: QComboBox*&#xa;- holdSearchEdit: QLineEdit*&#xa;- holdSearchFieldEdit: QComboBox*&#xa;- holdTable: QTableWidget*&#xa;&#xa;- analyticsBox: QTextEdit*&#xa;&#xa;- manager: LibraryManager&#xa;- dataManager: DataManager&#xa;- defaultFile: QString" vertex="1">
+          <mxGeometry height="300" width="240" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2RKMhSo4ycKMGXXXC48I-26" parent="aJSDO-_PX2scObMe0zip-14" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="700" width="240" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="VRRaC3-C4xOTnRFlB4VM-18" parent="aJSDO-_PX2scObMe0zip-14" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ GUI(QWidget* parent = nullptr)&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ buildUI()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ buildItemsTab()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ buildPatronsTab()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ buildLoansTab()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ buildHoldsTab()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ buildAnalyticsTab()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ refreshItemTable()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ refreshPatronTable()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ refreshLoanTable()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ refreshHoldTable()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ refreshAnalytics()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ refreshAll()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ warn(msg: QString)&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ addItem()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ updateItem()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ deleteItem()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ addPatron()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ updatePatron()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ clearFine()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ deletePatron()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ issueLoan()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ updateLoan()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ returnLoan()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ renewLoan()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ processLostItem()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ addHold()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ updateHold()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ placeItemForLoan()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ removeHold()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ saveData()&lt;/span&gt;&lt;br style=&quot;padding: 0px; margin: 0px; text-wrap-mode: nowrap;&quot;&gt;&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;+ loadData()&lt;/span&gt;" vertex="1">
+          <mxGeometry height="30" width="240" y="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="VRRaC3-C4xOTnRFlB4VM-2" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="aJSDO-_PX2scObMe0zip-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;endArrow=block;endFill=0;startSize=17;endSize=20;shadow=1;" target="aJSDO-_PX2scObMe0zip-19">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1865" y="80" />
+            </Array>
+            <mxPoint x="1520" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VRRaC3-C4xOTnRFlB4VM-4" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="zkfFHV4jXpPFQw0GAbJ--6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=-0.001;entryY=0.013;entryDx=0;entryDy=0;entryPerimeter=0;endSize=20;endArrow=block;endFill=0;" target="aJSDO-_PX2scObMe0zip-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VRRaC3-C4xOTnRFlB4VM-14" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="VRRaC3-C4xOTnRFlB4VM-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;endSize=20;endArrow=diamond;endFill=1;" target="VRRaC3-C4xOTnRFlB4VM-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VRRaC3-C4xOTnRFlB4VM-9" parent="WIyWlLk6GJQsqaUBKTNV-1" style="swimlane;whiteSpace=wrap;html=1;startSize=60;" value="&lt;div&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;&amp;lt;&amp;lt;Struct&amp;gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;HoldRecord&lt;/span&gt;" vertex="1">
+          <mxGeometry height="200" width="280" x="1730" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="VRRaC3-C4xOTnRFlB4VM-10" parent="VRRaC3-C4xOTnRFlB4VM-9" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div style=&quot;font-family: Lato, &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; font-size: 15px; text-align: start;&quot;&gt;+ holdID : string&amp;nbsp;&lt;br&gt;+ patronID : string&amp;nbsp;&lt;br&gt;+ patronName : string&amp;nbsp;&lt;br&gt;+ itemID : string&amp;nbsp;&lt;br&gt;+ pickupDate : string&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;font-family: Lato, &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; font-size: 15px; text-align: start;&quot;&gt;+ status : string&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="210" x="-20" y="118" as="geometry" />
+        </mxCell>
+        <mxCell id="VRRaC3-C4xOTnRFlB4VM-21" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="VRRaC3-C4xOTnRFlB4VM-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;dashed=1;flowAnimation=1;endArrow=open;endFill=0;shadow=1;endSize=20;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="145" y="840" />
+            </Array>
+            <mxPoint x="270" y="840" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VRRaC3-C4xOTnRFlB4VM-19" parent="WIyWlLk6GJQsqaUBKTNV-1" style="swimlane;whiteSpace=wrap;html=1;" value="main.cpp&amp;nbsp;" vertex="1">
+          <mxGeometry height="80" width="210" x="40" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="VRRaC3-C4xOTnRFlB4VM-20" parent="VRRaC3-C4xOTnRFlB4VM-19" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="+ main(argc: int, argv: String[]): int" vertex="1">
+          <mxGeometry height="50" width="190" x="10" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="VRRaC3-C4xOTnRFlB4VM-22" parent="WIyWlLk6GJQsqaUBKTNV-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;&amp;lt;&amp;lt;uses&amp;gt;&amp;gt;&lt;/div&gt;Dependency&amp;nbsp;" vertex="1">
+          <mxGeometry height="30" width="130" x="120" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="VRRaC3-C4xOTnRFlB4VM-23" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="aJSDO-_PX2scObMe0zip-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=-0.003;entryY=0.302;entryDx=0;entryDy=0;entryPerimeter=0;endSize=20;dashed=1;flowAnimation=1;endArrow=open;endFill=0;" target="2RKMhSo4ycKMGXXXC48I-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VRRaC3-C4xOTnRFlB4VM-24" parent="WIyWlLk6GJQsqaUBKTNV-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;&amp;lt;&amp;lt;uses&amp;gt;&amp;gt;&lt;/div&gt;Dependency&amp;nbsp;" vertex="1">
+          <mxGeometry height="30" width="60" x="670" y="790" as="geometry" />
+        </mxCell>
+        <mxCell id="VRRaC3-C4xOTnRFlB4VM-26" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="aJSDO-_PX2scObMe0zip-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1.005;entryY=0.775;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=diamond;endFill=1;endSize=20;" target="2RKMhSo4ycKMGXXXC48I-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VRRaC3-C4xOTnRFlB4VM-27" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="aJSDO-_PX2scObMe0zip-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;endArrow=diamondThin;endFill=1;endSize=20;entryX=0.66;entryY=1.002;entryDx=0;entryDy=0;entryPerimeter=0;" target="2RKMhSo4ycKMGXXXC48I-32">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1460" y="1240" />
+              <mxPoint x="1362" y="1240" />
+            </Array>
+            <mxPoint x="1440" y="1240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VRRaC3-C4xOTnRFlB4VM-28" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="aJSDO-_PX2scObMe0zip-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;endSize=20;strokeColor=default;endArrow=open;endFill=0;dashed=1;flowAnimation=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="aJSDO-_PX2scObMe0zip-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VRRaC3-C4xOTnRFlB4VM-29" parent="WIyWlLk6GJQsqaUBKTNV-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;&amp;lt;&amp;lt;uses&amp;gt;&amp;gt;&lt;/div&gt;Dependency&amp;nbsp;" vertex="1">
+          <mxGeometry height="30" width="60" x="530" y="990" as="geometry" />
+        </mxCell>
+        <mxCell id="VRRaC3-C4xOTnRFlB4VM-30" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="aJSDO-_PX2scObMe0zip-10" style="endArrow=open;dashed=1;html=1;dashPattern=1 3;strokeWidth=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;startArrow=none;startFill=0;endFill=0;flowAnimation=1;endSize=20;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="560" y="1385" />
+              <mxPoint x="560" y="1240" />
+            </Array>
+            <mxPoint x="940" y="1320" as="sourcePoint" />
+            <mxPoint x="510" y="1240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VRRaC3-C4xOTnRFlB4VM-31" parent="WIyWlLk6GJQsqaUBKTNV-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;&amp;lt;&amp;lt;uses&amp;gt;&amp;gt;&lt;/div&gt;Dependency&amp;nbsp;" vertex="1">
+          <mxGeometry height="30" width="60" x="570" y="1350" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
