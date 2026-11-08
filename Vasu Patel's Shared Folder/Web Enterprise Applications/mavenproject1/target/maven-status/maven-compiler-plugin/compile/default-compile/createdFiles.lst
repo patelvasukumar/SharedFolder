@@ -1,0 +1,13 @@
+com\mycompany\mavenproject1\ContactController$ContactControllerConverter.class
+com\mycompany\mavenproject1\exceptions\RollbackFailureException.class
+com\mycompany\mavenproject1\exceptions\PreexistingEntityException.class
+com\mycompany\mavenproject1\exceptions\NonexistentEntityException.class
+com\mycompany\mavenproject1\ContactJpaController.class
+com\mycompany\mavenproject1\resources\JakartaEE10Resource.class
+com\mycompany\mavenproject1\util\JsfUtil.class
+com\mycompany\mavenproject1\Contact.class
+com\mycompany\mavenproject1\exceptions\IllegalOrphanException.class
+com\mycompany\mavenproject1\ContactController$1.class
+com\mycompany\mavenproject1\JakartaRestConfiguration.class
+com\mycompany\mavenproject1\ContactController.class
+com\mycompany\mavenproject1\util\PaginationHelper.class
