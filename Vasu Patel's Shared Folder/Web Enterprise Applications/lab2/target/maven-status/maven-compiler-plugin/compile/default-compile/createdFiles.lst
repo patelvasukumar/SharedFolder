@@ -1,0 +1,13 @@
+cst8218\pate1541\lab2\JakartaRestConfiguration.class
+cst8218\pate1541\lab2\business\exceptions\NonexistentEntityException.class
+cst8218\pate1541\lab2\resources\JakartaEE10Resource.class
+cst8218\pate1541\lab2\business\exceptions\RollbackFailureException.class
+cst8218\pate1541\lab2\presentation\ContactController$1.class
+cst8218\pate1541\lab2\presentation\ContactController.class
+cst8218\pate1541\lab2\presentation\util\JsfUtil.class
+cst8218\pate1541\lab2\business\exceptions\PreexistingEntityException.class
+cst8218\pate1541\lab2\business\exceptions\IllegalOrphanException.class
+cst8218\pate1541\lab2\business\ContactJpaController.class
+cst8218\pate1541\lab2\Contact.class
+cst8218\pate1541\lab2\presentation\ContactController$ContactControllerConverter.class
+cst8218\pate1541\lab2\presentation\util\PaginationHelper.class
