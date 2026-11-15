@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html">
+
+    <h:head>
+        <title>Edit Bouncer</title>
+    </h:head>
+
+    <h:body>
+        <h1>Edit Bouncer</h1>
+
+        <h:form>
+            <h:messages />
+
+            <h:panelGrid columns="2">
+
+                <h:outputLabel value="ID:" />
+                <h:outputText value="#{bouncerController.current.id}" />
+
+                <h:outputLabel for="x" value="X Position:" />
+                <h:inputText id="x"
+                             value="#{bouncerController.current.x}"
+                             required="true" />
+
+                <h:outputLabel for="y" value="Y Position:" />
+                <h:inputText id="y"
+                             value="#{bouncerController.current.y}"
+                             required="true" />
+
+                <h:outputLabel for="ySpeed" value="Y Speed:" />
+                <h:inputText id="ySpeed"
+                             value="#{bouncerController.current.ySpeed}"
+                             required="true" />
+
+                <h:outputLabel for="size" value="Size:" />
+                <h:inputText id="size"
+                             value="#{bouncerController.current.size}"
+                             required="true" />
+
+            </h:panelGrid>
+
+            <h:commandButton value="Save Changes"
+                             action="#{bouncerController.update}" />
+
+            <h:commandButton value="Cancel"
+                             action="List?faces-redirect=true"
+                             immediate="true" />
+        </h:form>
+    </h:body>
+</html>

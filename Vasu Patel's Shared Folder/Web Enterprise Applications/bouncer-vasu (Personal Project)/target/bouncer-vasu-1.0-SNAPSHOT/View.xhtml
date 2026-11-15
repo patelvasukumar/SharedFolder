@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html">
+
+    <h:head>
+        <title>View Bouncer</title>
+    </h:head>
+
+    <h:body>
+        <h1>Bouncer Details</h1>
+
+        <h:form>
+            <h:panelGrid columns="2">
+
+                <h:outputText value="ID:" />
+                <h:outputText value="#{bouncerController.current.id}" />
+
+                <h:outputText value="X Position:" />
+                <h:outputText value="#{bouncerController.current.x}" />
+
+                <h:outputText value="Y Position:" />
+                <h:outputText value="#{bouncerController.current.y}" />
+
+                <h:outputText value="Y Speed:" />
+                <h:outputText value="#{bouncerController.current.ySpeed}" />
+
+                <h:outputText value="Size:" />
+                <h:outputText value="#{bouncerController.current.size}" />
+
+            </h:panelGrid>
+
+            <h:commandButton value="Back to List"
+                             action="List?faces-redirect=true" />
+        </h:form>
+    
+    </h:body>
+
+</html>
