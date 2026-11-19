@@ -2,13 +2,8 @@
 PATH=/bin:/usr/bin ; export PATH
 umask 022
 
-# Assignment number: LAB - 09 
-# Name: Vasukumar Patel
-# Student Number: 041153940
-# Course: Operating Systems Fund (GNU/Linux)
-# Section Number: 322
+
 # Script Name: manage_users
-# Submission date: 29th March 2025
 #
 # This script has different functions which related to the adding account and modifying the account of the user. 
 # Also, we can delete and change the shell of the user by using the functions. The script is using exit and sleep for the better user experience.
