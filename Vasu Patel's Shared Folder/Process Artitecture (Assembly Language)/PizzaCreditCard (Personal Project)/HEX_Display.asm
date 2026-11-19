@@ -1,8 +1,3 @@
-; HEX_Display.asm
-; Author:               D. Haley
-; Student Number:       Faculty
-; Date:                 28 Nov 2020
-;
 ; Purpose:              Subroutine to display a value on a Hex Display
 ;
 ; Preconditions:        HEX Displays configured for Output

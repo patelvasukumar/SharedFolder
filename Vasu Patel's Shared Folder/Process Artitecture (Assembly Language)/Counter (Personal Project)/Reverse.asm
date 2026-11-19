@@ -1,9 +1,4 @@
 ; Reverse.asm
-
-; Modified by:          Sabit Naim, Vasukumar Patel
-; Student Number(s):    041155239, 041153940
-; Course:               CST8216
-; Date:                 26th July 2025
 ;
 ; Purpose       To copy and reverse and array, while performing the following
 ;               additional operations to decrypt the Secret Message. After
@@ -41,7 +36,7 @@ Loop:
                 xgdx                                    ; Exchanging the values in D and X
                 adda    #ADDED_VALUE                    ; Add 32 to the array
                 staa    1,y-                             ; Storing the new values in A
-                cpx   #End_Source_Array	  ; Comparing with total array size
+                cpx   #End_Source_Array          ; Comparing with total array size
                 blo     Loop                            ; Loop if number of loops lower than array size
 
                 swi

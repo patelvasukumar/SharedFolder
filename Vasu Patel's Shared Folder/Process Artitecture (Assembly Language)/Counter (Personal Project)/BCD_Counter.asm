@@ -1,9 +1,4 @@
 ; BCD_Counter.asm
-; Author:               D. Haley, Faculty
-; Modified by:          Vasukumar Patel, Sabit Naim
-; Student Number(s):     041153940, 041155239
-; Course:               CST8216
-; Date:                 24th July 2025
 ;
 ; Purpose       BCD Counter $00 - $15 (BCD) using Hex Displays
 ;               and a single register, Accumulator A, for the count
@@ -20,7 +15,6 @@ Hex_Display                 equ        $2139
 Extract_Msb                 equ        $2144
 Extract_Lsb                 equ        $2149
 
-; Program Constants - to be used in your solution
 STACK           equ     $2000
                                 ; Port P (PPT) Display Selection Values
 DIGIT3_PP0      equ     %1110   ; Left-most display MSB
@@ -30,11 +24,6 @@ DIGIT2_PP1      equ     %1101   ; 2nd from left-most display LSB
 DVALUE  equ     #250            ; Delay value (base 10) 0 - 255 ms
                                 ; 125 = 1/8 second <- good for Dragon12 Board
 
-; ***** END OF DO NOT CHANGE ANY CODE BETWEEN THESE MARKERS *****
-
-; BCD Count constants  - to be used in your solution
-; Changing these values will change the Starting and End BCD counts
-
 FIRST_BCD        equ     $00     ; Starting BCD count
 END_BCD          equ     $15     ; Ending BCD count 0
 
@@ -42,7 +31,7 @@ END_BCD          equ     $15     ; Ending BCD count 0
 Start   lds     #STACK          ; Initialize the Stack
 
         jsr     Config_Hex_Displays ; Use the Hex Displays to display the count
-        ; Continually Count FIRST_BCD ... END_BCD ... FIRST_BCD ... END_BCD
+
         ldaa    #FIRST_BCD     ; loading the first bcd value in accumulator A with immidate addressing mode
 Loop:   psha                    ; pusing the value on the stack
         jsr     Extract_Msb       ; extract MSB
@@ -66,4 +55,4 @@ Loop:   psha                    ; pusing the value on the stack
         ldaa    #FIRST_BCD            ; loading into accumulator A with immidate mode
         bra     Loop                  ; branch to the loop
 
-	end                           ; end of the program
+        end                           ; end of the program

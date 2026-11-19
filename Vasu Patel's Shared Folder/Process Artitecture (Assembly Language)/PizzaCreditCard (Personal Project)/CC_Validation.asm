@@ -1,11 +1,7 @@
 ; CC_Validation.asm
 ;
 #include C:\68HCS12\registers.inc
-;
-; Author(s):
-; Student Number(s):
-; Date:
-;
+
 ; Purpose:      Credit Card Number Validation
 
 ; Address Constants - Do NOT change
