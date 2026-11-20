@@ -1,0 +1,5 @@
+cst8218\pate1541\lab3rest\resources\JakartaEE10Resource.class
+service\ContactFacadeREST.class
+service\AbstractFacade.class
+cst8218\pate1541\lab3rest\entity\Contact.class
+cst8218\pate1541\lab3rest\JakartaRestConfiguration.class
