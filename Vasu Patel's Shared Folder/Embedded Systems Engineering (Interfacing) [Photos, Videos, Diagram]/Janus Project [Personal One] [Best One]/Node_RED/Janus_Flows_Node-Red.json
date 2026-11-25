@@ -1,0 +1,1118 @@
+[
+    {
+        "id": "afbc8ed7f47877e8",
+        "type": "tab",
+        "label": "Janus - Climate System",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "cfg_serial",
+        "type": "serial-port",
+        "name": "MEGA-1 USB",
+        "serialport": "COM7",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "ui_base",
+        "type": "ui-base",
+        "name": "CST8227 Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 4,
+        "showDisconnectNotification": true
+    },
+    {
+        "id": "ui_theme",
+        "type": "ui-theme",
+        "name": "Project Theme",
+        "colors": {
+            "surface": "#1f3b57",
+            "primary": "#0094ce",
+            "bgPage": "#eef2f5",
+            "groupBg": "#ffffff",
+            "groupOutline": "#d0d7de"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "8px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "ui_page",
+        "type": "ui-page",
+        "name": "Multi-Sensor Monitoring",
+        "ui": "ui_base",
+        "path": "/climate",
+        "icon": "thermometer",
+        "layout": "grid",
+        "theme": "ui_theme",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "grp_room",
+        "type": "ui-group",
+        "name": "Room (MEGA-2)",
+        "page": "ui_page",
+        "width": "6",
+        "height": "1",
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "grp_status",
+        "type": "ui-group",
+        "name": "System status",
+        "page": "ui_page",
+        "width": "6",
+        "height": "1",
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "grp_chart",
+        "type": "ui-group",
+        "name": "History",
+        "page": "ui_page",
+        "width": "6",
+        "height": "1",
+        "order": 3,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "grp_control",
+        "type": "ui-group",
+        "name": "Control (MEGA-1)",
+        "page": "ui_page",
+        "width": "6",
+        "height": "1",
+        "order": 4,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "684d64b5739fdc9b",
+        "type": "serial in",
+        "z": "afbc8ed7f47877e8",
+        "name": "MEGA-1 USB in",
+        "serial": "cfg_serial",
+        "x": 100,
+        "y": 100,
+        "wires": [
+            [
+                "aac1db12e2af0a01"
+            ]
+        ]
+    },
+    {
+        "id": "aac1db12e2af0a01",
+        "type": "function",
+        "z": "afbc8ed7f47877e8",
+        "name": "Parse JSON line",
+        "func": "const line = String(msg.payload).trim();\nif (!line.startsWith('{')) return null;\nlet data;\ntry { data = JSON.parse(line); } catch (e) { node.status({fill:'red', shape:'ring', text:'bad line'}); return null; }\nmsg.payload = data;\nif (data.type === 'telemetry') {\n    node.status({fill: data.link ? 'green' : 'yellow', shape: 'dot', text: data.state + (data.link ? '' : ' (no MEGA-2)')});\n    return [msg, null];\n}\nif (data.type === 'event') return [null, msg];\nreturn null;",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 100,
+        "wires": [
+            [
+                "132fa81a825735fe",
+                "907e82c16a0cf0f0"
+            ],
+            [
+                "6bca6a5d7fa25915",
+                "907e82c16a0cf0f0"
+            ]
+        ]
+    },
+    {
+        "id": "132fa81a825735fe",
+        "type": "function",
+        "z": "afbc8ed7f47877e8",
+        "name": "Split telemetry",
+        "func": "const d = msg.payload;\nconst out = [];\nconst fmt = (v) => (v === null || v === undefined) ? null : {payload: v};\nout[0] = fmt(d.temperature);\nout[1] = fmt(d.humidity);\nout[2] = {payload: d.motor ? 'ON' : 'OFF'};\nout[3] = {payload: d.night ? 'ACTIVE (22.0 \\u00b0C)' : 'Off'};\nout[4] = {payload: d.motion ? 'Detected' : 'None'};\nout[5] = {payload: d.alert ? 'OBJECT < 20 cm - fan stopped' : 'Clear'};\nlet state = d.state;\nif (!d.link) state += ' (MEGA-2 not responding)';\nout[6] = {payload: state};\nout[7] = {payload: (d.target ? d.target.toFixed(1) : '--') + ' \\u00b0C   (user: ' + (d.preferred ? d.preferred.toFixed(1) : '--') + ' \\u00b0C)'};\nconst chart = [];\nif (d.temperature !== null) chart.push({topic: 'Temperature (\\u00b0C)', payload: d.temperature});\nif (d.humidity !== null) chart.push({topic: 'Humidity (%)', payload: d.humidity});\nout[8] = chart.length ? chart : null;\nout[9] = {payload: d.motorSeconds + ' s'};\nout[10] = {payload: d.light + ' / 1023'};\nreturn out;",
+        "outputs": 11,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 80,
+        "wires": [
+            [
+                "8c38d6ed84c8fea5"
+            ],
+            [
+                "d13168c323e08ab0"
+            ],
+            [
+                "438cee135873f64a"
+            ],
+            [
+                "04bcb16421c3e7b8"
+            ],
+            [
+                "b570d39d2c569e01"
+            ],
+            [
+                "404150a2c97e61ed"
+            ],
+            [
+                "7449fc35130b325d"
+            ],
+            [
+                "6e751a04ebdba3d0"
+            ],
+            [
+                "13b975f58363acd2"
+            ],
+            [
+                "a5b9560a16243dc9"
+            ],
+            [
+                "4f96926b737f7a66"
+            ]
+        ],
+        "outputLabels": [
+            "temperature",
+            "humidity",
+            "fan",
+            "night mode",
+            "motion",
+            "alert",
+            "system",
+            "target",
+            "chart",
+            "fan time",
+            "light"
+        ]
+    },
+    {
+        "id": "8c38d6ed84c8fea5",
+        "type": "ui-gauge",
+        "z": "afbc8ed7f47877e8",
+        "name": "Temperature",
+        "group": "grp_room",
+        "order": 1,
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Temperature",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "°C",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c"
+            },
+            {
+                "from": "24",
+                "color": "#ffc800"
+            },
+            {
+                "from": "30",
+                "color": "#ea5353"
+            }
+        ],
+        "min": 0,
+        "max": 50,
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 1110,
+        "y": 20,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d13168c323e08ab0",
+        "type": "ui-gauge",
+        "z": "afbc8ed7f47877e8",
+        "name": "Humidity",
+        "group": "grp_room",
+        "order": 2,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Humidity",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "%",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "30",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "60",
+                "color": "#0094ce",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": 100,
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 1100,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "438cee135873f64a",
+        "type": "ui-text",
+        "z": "afbc8ed7f47877e8",
+        "group": "grp_room",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "Fan (DC motor)",
+        "label": "Fan (DC motor)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#1f3b57",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 1240,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "04bcb16421c3e7b8",
+        "type": "ui-text",
+        "z": "afbc8ed7f47877e8",
+        "group": "grp_room",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "Night mode",
+        "label": "Night mode",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#1f3b57",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 1250,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "b570d39d2c569e01",
+        "type": "ui-text",
+        "z": "afbc8ed7f47877e8",
+        "group": "grp_status",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Motion",
+        "label": "Motion",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#1f3b57",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 1390,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "404150a2c97e61ed",
+        "type": "ui-text",
+        "z": "afbc8ed7f47877e8",
+        "group": "grp_status",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Fan safety",
+        "label": "Fan safety",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#1f3b57",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 1470,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "7449fc35130b325d",
+        "type": "ui-text",
+        "z": "afbc8ed7f47877e8",
+        "group": "grp_status",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "MEGA-1 state",
+        "label": "MEGA-1 state",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#1f3b57",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 1540,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "6e751a04ebdba3d0",
+        "type": "ui-text",
+        "z": "afbc8ed7f47877e8",
+        "group": "grp_status",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "Active target",
+        "label": "Active target",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#1f3b57",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 1630,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "a5b9560a16243dc9",
+        "type": "ui-text",
+        "z": "afbc8ed7f47877e8",
+        "group": "grp_status",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "Fan on-time",
+        "label": "Fan on-time",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#1f3b57",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 1590,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "4f96926b737f7a66",
+        "type": "ui-text",
+        "z": "afbc8ed7f47877e8",
+        "group": "grp_status",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "Light level",
+        "label": "Light level",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#1f3b57",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 1080,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "13b975f58363acd2",
+        "type": "ui-chart",
+        "z": "afbc8ed7f47877e8",
+        "group": "grp_chart",
+        "name": "History",
+        "label": "Temperature & humidity",
+        "order": 1,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "0",
+        "ymax": "100",
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 2,
+        "showLegend": true,
+        "removeOlder": "10",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "",
+        "colors": [
+            "#ea5353",
+            "#0094ce",
+            "#5cd65c",
+            "#ffc800",
+            "#a35cd6",
+            "#606060",
+            "#2ca02c",
+            "#9467bd",
+            "#8c564b"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": 6,
+        "className": "",
+        "interpolation": "linear",
+        "x": 1620,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6bca6a5d7fa25915",
+        "type": "function",
+        "z": "afbc8ed7f47877e8",
+        "name": "Event -> notification",
+        "func": "const e = msg.payload;\nconst text = {\n  BOOT: 'MEGA-1 started (' + e.detail + ')',\n  PASSCODE_SAVED: 'Passcode saved on MEGA-1',\n  PASSCODE_MISMATCH: 'Keypad: the two passcodes did not match',\n  PASSCODE_WRONG: 'Keypad: wrong passcode',\n  ACCESS_GRANTED: 'Keypad: access granted',\n  RESET_DONE: 'System reset - enter the passcode again',\n  OK: e.detail,\n  ERROR: 'Error: ' + e.detail\n}[e.event] || (e.event + ' ' + e.detail);\nmsg.payload = text;\nreturn msg;",
+        "outputs": 1,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 440,
+        "wires": [
+            [
+                "4116c26b157f05ba"
+            ]
+        ]
+    },
+    {
+        "id": "4116c26b157f05ba",
+        "type": "ui-notification",
+        "z": "afbc8ed7f47877e8",
+        "ui": "ui_base",
+        "position": "top right",
+        "colorDefault": true,
+        "color": "#000000",
+        "displayTime": "4",
+        "showCountdown": true,
+        "outputs": 1,
+        "allowDismiss": true,
+        "dismissText": "Close",
+        "allowConfirm": false,
+        "confirmText": "Confirm",
+        "showInput": false,
+        "inputType": "text",
+        "inputLabel": "",
+        "raw": false,
+        "className": "",
+        "name": "Events",
+        "x": 1250,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "907e82c16a0cf0f0",
+        "type": "debug",
+        "z": "afbc8ed7f47877e8",
+        "name": "From MEGA-1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "e6cfa6a527239cbb",
+        "type": "ui-button",
+        "z": "afbc8ed7f47877e8",
+        "group": "grp_control",
+        "name": "START",
+        "label": "START",
+        "order": 10,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "START",
+        "payloadType": "str",
+        "topic": "command",
+        "topicType": "str",
+        "buttonColor": "#2e7d32",
+        "textColor": "#ffffff",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 120,
+        "y": 740,
+        "wires": [
+            [
+                "991391acc837f182"
+            ]
+        ]
+    },
+    {
+        "id": "a61fbf200a7841a2",
+        "type": "ui-button",
+        "z": "afbc8ed7f47877e8",
+        "group": "grp_control",
+        "name": "STOP",
+        "label": "STOP",
+        "order": 11,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "STOP",
+        "payloadType": "str",
+        "topic": "command",
+        "topicType": "str",
+        "buttonColor": "#c62828",
+        "textColor": "#ffffff",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 110,
+        "y": 800,
+        "wires": [
+            [
+                "991391acc837f182"
+            ]
+        ]
+    },
+    {
+        "id": "6dcbe89d416a3273",
+        "type": "ui-button",
+        "z": "afbc8ed7f47877e8",
+        "group": "grp_control",
+        "name": "RESET",
+        "label": "RESET",
+        "order": 12,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "RESET",
+        "payloadType": "str",
+        "topic": "command",
+        "topicType": "str",
+        "buttonColor": "#ef6c00",
+        "textColor": "#ffffff",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 120,
+        "y": 860,
+        "wires": [
+            [
+                "991391acc837f182"
+            ]
+        ]
+    },
+    {
+        "id": "69b27738e848b36f",
+        "type": "ui-button",
+        "z": "afbc8ed7f47877e8",
+        "group": "grp_control",
+        "name": "STATUS",
+        "label": "STATUS",
+        "order": 13,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "STATUS",
+        "payloadType": "str",
+        "topic": "command",
+        "topicType": "str",
+        "buttonColor": "#1565c0",
+        "textColor": "#ffffff",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 120,
+        "y": 660,
+        "wires": [
+            [
+                "991391acc837f182"
+            ]
+        ]
+    },
+    {
+        "id": "269ba6f2a039295f",
+        "type": "ui-text-input",
+        "z": "afbc8ed7f47877e8",
+        "group": "grp_control",
+        "name": "New passcode",
+        "label": "New 4-digit passcode (press Enter)",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "topic": "passcode",
+        "topicType": "str",
+        "mode": "password",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": false,
+        "sendOnDelay": false,
+        "sendOnBlur": false,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": true,
+        "sendOnClear": false,
+        "icon": "lock",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 140,
+        "y": 940,
+        "wires": [
+            [
+                "83b9377c243777bb"
+            ]
+        ]
+    },
+    {
+        "id": "83b9377c243777bb",
+        "type": "function",
+        "z": "afbc8ed7f47877e8",
+        "name": "Make SET_PASS",
+        "func": "const code = String(msg.payload).trim();\nif (/^[0-9]{4}$/.test(code)) {\n    return [{payload: 'SET_PASS:' + code}, null];\n}\nreturn [null, {payload: 'Passcode must be exactly 4 digits'}];",
+        "outputs": 2,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 940,
+        "wires": [
+            [
+                "991391acc837f182"
+            ],
+            [
+                "4116c26b157f05ba"
+            ]
+        ]
+    },
+    {
+        "id": "c9a2d709f992e942",
+        "type": "ui-text-input",
+        "z": "afbc8ed7f47877e8",
+        "group": "grp_control",
+        "name": "Preferred temp",
+        "label": "Preferred temp, 3 digits (235 = 23.5 °C)",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "topic": "temp",
+        "topicType": "str",
+        "mode": "text",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": false,
+        "sendOnDelay": false,
+        "sendOnBlur": false,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": true,
+        "sendOnClear": false,
+        "icon": "thermometer",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 180,
+        "y": 1120,
+        "wires": [
+            [
+                "afe7610b563e227b"
+            ]
+        ]
+    },
+    {
+        "id": "afe7610b563e227b",
+        "type": "function",
+        "z": "afbc8ed7f47877e8",
+        "name": "Make TEMP",
+        "func": "const t = String(msg.payload).trim();\nif (/^[0-9]{3}$/.test(t) && +t >= 100 && +t <= 400) {\n    return [{payload: 'TEMP:' + t}, null];\n}\nreturn [null, {payload: 'Enter 3 digits between 100 and 400 (e.g. 235)'}];",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 1060,
+        "wires": [
+            [
+                "991391acc837f182"
+            ],
+            [
+                "4116c26b157f05ba"
+            ]
+        ]
+    },
+    {
+        "id": "d8835cc148884358",
+        "type": "inject",
+        "z": "afbc8ed7f47877e8",
+        "name": "SET_PASS:1234",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "SET_PASS:1234",
+        "payloadType": "str",
+        "x": 180,
+        "y": 400,
+        "wires": [
+            [
+                "991391acc837f182"
+            ]
+        ]
+    },
+    {
+        "id": "5f91a6055ed263ca",
+        "type": "inject",
+        "z": "afbc8ed7f47877e8",
+        "name": "START",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "START",
+        "payloadType": "str",
+        "x": 170,
+        "y": 460,
+        "wires": [
+            [
+                "991391acc837f182"
+            ]
+        ]
+    },
+    {
+        "id": "76145b3cc0cbabc2",
+        "type": "inject",
+        "z": "afbc8ed7f47877e8",
+        "name": "STOP",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "STOP",
+        "payloadType": "str",
+        "x": 170,
+        "y": 540,
+        "wires": [
+            [
+                "991391acc837f182"
+            ]
+        ]
+    },
+    {
+        "id": "749147af8b0cfb2e",
+        "type": "inject",
+        "z": "afbc8ed7f47877e8",
+        "name": "RESET",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "RESET",
+        "payloadType": "str",
+        "x": 210,
+        "y": 340,
+        "wires": [
+            [
+                "991391acc837f182"
+            ]
+        ]
+    },
+    {
+        "id": "f3ef3950d760264c",
+        "type": "inject",
+        "z": "afbc8ed7f47877e8",
+        "name": "STATUS",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "STATUS",
+        "payloadType": "str",
+        "x": 240,
+        "y": 280,
+        "wires": [
+            [
+                "991391acc837f182"
+            ]
+        ]
+    },
+    {
+        "id": "991391acc837f182",
+        "type": "function",
+        "z": "afbc8ed7f47877e8",
+        "name": "Add newline",
+        "func": "msg.payload = String(msg.payload).trim() + '\\n';\nreturn msg;",
+        "outputs": 1,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 580,
+        "wires": [
+            [
+                "03f91e20ca728088",
+                "77fea4ce26deb39c"
+            ]
+        ]
+    },
+    {
+        "id": "03f91e20ca728088",
+        "type": "serial out",
+        "z": "afbc8ed7f47877e8",
+        "name": "MEGA-1 USB out",
+        "serial": "cfg_serial",
+        "x": 670,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "77fea4ce26deb39c",
+        "type": "debug",
+        "z": "afbc8ed7f47877e8",
+        "name": "To MEGA-1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "a1fee007217e94de",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-node-serialport": "2.0.3",
+            "@flowfuse/node-red-dashboard": "1.37.0"
+        }
+    }
+]
